@@ -57,6 +57,8 @@ VISITOR_SAMPLE = {"aide/formmail.htm": [("194.206.68.216", "????"), ("dial16.net
 NOINDEX_PAGES = {"citeweb/blanc.htm", "citeweb/centre.htm", "citeweb/depart.htm", "citeweb/gauche.htm",
                  "citeweb/gb.htm", "citeweb/gh.htm", "citeweb/haut.htm", "citeweb/milieu.htm",
                  "citeweb/pub.htm", "membres/index.htm", "sites/index.htm"}
+# Empty directory pages: their text goes grey, like the archive note on the home page.
+EMPTY_DIR_PAGES = {"membres/index.htm", "sites/index.htm"}
 
 HEADER = """<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
 <html>
@@ -202,6 +204,11 @@ def clean(text, page):
     text = SCRIPT_LOC.sub("", text)
     if page.startswith("aide/irc/"):
         text = irc_menu(text)
+    if page == "aide/index.htm":  # the IRC services help was reachable only from the bot menu
+        text = text.replace('<a href="irc.htm"', '<a href="/aide/irc/index.htm">services IRC (bots de service)</a><br>\n          <a href="irc.htm"', 1)
+    if page in EMPTY_DIR_PAGES:
+        text = re.sub(r'(?<![\w-])color="#(?:000000|3C976B)"', 'color="#777777"', text, flags=re.I)
+        text = text.replace('<font size="3" face="Verdana">', '<font size="3" face="Verdana" color="#777777">', 1)
     text = FORM.sub("", text)
     text = INPUT.sub("", text)
     for old, new in VISITOR_SAMPLE.get(page, []):
