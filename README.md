@@ -16,7 +16,7 @@ Full list of the sites: https://chanoj.github.io/
 | `scripts/build.py` | Generates `site/` from the raw store (`$CITEWEB_RAW`, default `~/Code/Citeweb/raw`), then runs `seo.py` |
 | `scripts/seo.py` | `robots.txt`, `sitemap.xml`, and the `frame-restore.js` tag in every page |
 | `scripts/frame-restore.js` | A page opened on its own reopens inside the nested framesets (no loop) |
-| `scripts/check_excludes.py` | Fails if engine code, backups, forms or server markup reach `site/` |
+| `scripts/check_excludes.py` | Fails if engine code, backups, forms, server markup or IP addresses reach `site/` |
 | `infra/` | OpenTofu: storage zone, pull zone, hostname (state encrypted, committed) |
 | `infra/secrets.env` | Proton Pass **references** to the secrets (vault `OldSites`), no secret values |
 | `scripts/deploy.py` | Sync `site/` to the storage zone, purge the CDN |
@@ -26,7 +26,7 @@ DNS is not managed here: the hostname is a CNAME to `<pull zone>.b-cdn.net` at I
 
 ## What is left out
 
-Pages that needed the server (member area, forums, member directory, search, counters, forms), engine code, and the history/administrator pages. Links that needed the server become plain text; other external links are kept and open in a new window. Personal e-mail addresses are masked as `local@????`; role addresses (`tech@`, `irc@`...) and the sample addresses of the help pages are kept. Visitor data in the samples (IP, host) is replaced by `????`. The frame fragments and empty directory pages are `noindex` and out of the sitemap.
+Pages that needed the server (member area, forums, member directory, search, counters, forms), engine code, and the history/administrator pages. Links that needed the server become plain text; other external links are kept and open in a new window. Personal e-mail addresses are masked as `local@????`; role addresses (`tech@`, `irc@`...) and the sample addresses of the help pages are kept.
 
 ## Changes from the original site
 
