@@ -6,8 +6,9 @@ Inputs (read-only, never published as is), `$CITEWEB_RAW` or ~/Code/Citeweb/raw:
   Citeweb/Site/aide/                 help pages (templates whose server include is replaced below)
 
 Output: site/ (wiped and rebuilt, deterministic), then scripts/seo.py (robots, sitemap, frame restore).
-Dead links (pages that needed the engine, forms, dead third parties) become plain text, e-mail
-addresses are masked as local@????, no engine code is copied.
+Links that needed the server (counters, member area, webmail, forms) become plain text; other external
+links are kept and open in a new window. Personal e-mail addresses are masked as local@????, role
+addresses (tech@, irc@...) are kept. No engine code is copied.
 
 Usage: python3 -I scripts/build.py
 """
@@ -38,15 +39,24 @@ FORM = re.compile(r"</?form\b[^>]*>", re.I)
 INPUT = re.compile(r"<input\b[^>]*>", re.I)
 SCRIPT_LOC = re.compile(r"<SCRIPT[^>]*>[^<]*parent\.\w+\.location[^<]*</SCRIPT>", re.I | re.S)
 
-# Footer only where a family name, a private postal address or a person's own e-mail appears
-# (role addresses such as tech@ or login@ do not count).
-REMOVAL_PAGES = {"aide/ftp.htm"}
-REMOVAL_NOTE = (
-    '<div id="removal-note" style="clear:both;margin:28px auto 8px;padding:6px 8px 0;width:60%;'
-    'border-top:1px solid #808080;text-align:center;font:10px/14px Verdana,Arial,Helvetica,sans-serif;'
-    'color:#808080;background:transparent">To be removed from this page, '
-    '<a href="mailto:chandra_oj@pm.me" style="color:#808080;text-decoration:underline">contact me</a>.</div>'
-)
+SCRIPT_IRC_MENU = re.compile(r"<script[^>]*>\s*(?:<!--)?\s*ssm = new Array\(\).*?</script>", re.I | re.S)
+BOT_NAME = re.compile(r'ssm\[\d+\]\s*=\s*"([^"]+)"')
+HEAD_OPEN = re.compile(r"<head[^>]*>", re.I)
+HTML_OPEN = re.compile(r"<html[^>]*>", re.I)
+ROBOTS_META = re.compile(r"<meta[^>]*name\s*=\s*[\"']?robots[\"']?[^>]*>", re.I)
+EXTERNAL = re.compile(r"^(?:https?|ftp|news|irc)://", re.I)
+# Links that need the server (counters, member area, webmail, ricochet redirect, chat settings): plain text.
+SERVER_LINK = re.compile(r"/membres/|/email\b|ricochet|\.ctw\b|chatcfg", re.I)
+# Role or example addresses, not a person: kept in clear (the help pages tell the reader where to write).
+ROLE_MAIL = {"tech", "login", "votrelogin", "moi", "moncopain", "webmaster2", "formulaires", "cc", "irc",
+             "citeweb", "citeweb-subscribe", "citeweb-unsubscribe", "citeweb-help"}
+# Data of a real visitor shipped as a sample in a help page: replaced.
+VISITOR_SAMPLE = {"aide/formmail.htm": [("194.206.68.216", "????"), ("dial16.netinfo.fr", "????")]}
+# Frame fragments and empty directory pages: they stay online for the frames but are not indexed
+# (noindex keeps them out of the sitemap too).
+NOINDEX_PAGES = {"citeweb/blanc.htm", "citeweb/centre.htm", "citeweb/depart.htm", "citeweb/gauche.htm",
+                 "citeweb/gb.htm", "citeweb/gh.htm", "citeweb/haut.htm", "citeweb/milieu.htm",
+                 "citeweb/pub.htm", "membres/index.htm", "sites/index.htm"}
 
 HEADER = """<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
 <html>
@@ -136,14 +146,14 @@ def fix_link(url, page):
         return u
     if u.lower().startswith("mailto:"):
         return None
-    m = re.match(r"https?://([^/]+)(/.*)?$", u, re.I)
+    m = re.match(r"(?:https?|ftp|news|irc)://([^/?#]+)(.*)$", u, re.I)
     if m:
-        host, path = m.group(1).lower(), m.group(2) or "/"
-        if host.endswith("sauthier.family"):
-            return u
+        host, rest = m.group(1).lower(), m.group(2)
         if host not in ("citeweb.net", "www.citeweb.net"):
+            return u  # another site, alive or dead: kept as written in the original
+        if SERVER_LINK.search(rest):
             return None
-        u = path
+        u = rest or "/"
     path, _, frag = u.partition("#")
     path = path.split("?")[0]
     path = posixpath.normpath(path if path.startswith("/") else posixpath.join(posixpath.dirname("/" + page), path))
@@ -157,19 +167,55 @@ def fix_link(url, page):
     return "/" + rel + ("#" + frag if frag else "")
 
 
+def blank(tag):
+    """External links open in a new window, so that the frames stay in place (tag ends with '>')."""
+    tag = re.sub(r'\s+(?:target|rel)\s*=\s*(?:"[^"]*"|\'[^\']*\'|[^\s>]+)', "", tag, flags=re.I)
+    return tag[:-1] + ' target="_blank" rel="noopener">'
+
+
+def irc_menu(text):
+    """The bot list was written by a script whose form button is gone: plain links instead."""
+    names = BOT_NAME.findall(text)
+    links = "".join('<p align="center"><a href="%s.htm">%s</a></p>\n' % (n.lower(), n) for n in names)
+    return SCRIPT_IRC_MENU.sub(lambda _: links, text, count=1)
+
+
+def head_meta(text, page):
+    """Charset and robots meta where missing (the server sends text/html only, pages are Latin-1)."""
+    extra = ""
+    if "charset" not in text[:4096].lower():
+        extra += '<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">'
+    if page in NOINDEX_PAGES:  # replaces any robots meta of the capture
+        text = ROBOTS_META.sub("", text)
+        extra += '<meta name="robots" content="noindex">'
+    if not extra:
+        return text
+    m = HEAD_OPEN.search(text) or HTML_OPEN.search(text)
+    if m:
+        return text[:m.end()] + extra + text[m.end():]
+    return extra + text
+
+
 def clean(text, page):
     text = TPP.sub("", text)
     text = TOPSELF.sub("", text)
     text = SCRIPT_LOC.sub("", text)
+    if page.startswith("aide/irc/"):
+        text = irc_menu(text)
     text = FORM.sub("", text)
     text = INPUT.sub("", text)
+    for old, new in VISITOR_SAMPLE.get(page, []):
+        text = text.replace(old, new)
 
     def anchor(m):
         url = m.group(2) if m.group(2) is not None else m.group(3)
         new = fix_link(url, page)
         if new is None:
             return m.group(5)
-        return '%shref="%s"%s%s%s' % (m.group(1), new, m.group(4), m.group(5), m.group(6))
+        tag = '%shref="%s"%s' % (m.group(1), new, m.group(4))
+        if EXTERNAL.match(new):
+            tag = blank(tag)
+        return tag + m.group(5) + m.group(6)
 
     text = HREF.sub(anchor, text)
     # frameset sources, images, image maps
@@ -177,15 +223,20 @@ def clean(text, page):
 
     def area(m):
         new = fix_link(m.group(2), page)
-        return "" if new is None else m.group(1) + new + m.group(3)
+        if new is None:
+            return ""
+        tag = m.group(1) + new + m.group(3)
+        return blank(tag) if EXTERNAL.match(new) else tag
 
     text = re.sub(r'(<area\b[^>]*?\bhref\s*=\s*")([^"]*)("[^>]*>)', area, text, flags=re.I)
     text = re.sub(r'(<area\b[^>]*?)\s+target\s*=\s*"centre"', r"\1", text, flags=re.I)
-    text = MAIL.sub(lambda m: m.group(0).split("@")[0] + "@????", text)
-    if page in REMOVAL_PAGES and "removal-note" not in text:  # pages naming a person (family name)
-        i = text.lower().rfind("</body>")
-        text = text[:i] + REMOVAL_NOTE + text[i:] if i >= 0 else text + REMOVAL_NOTE
-    return text
+
+    def mail(m):
+        local = m.group(0).split("@")[0]
+        return m.group(0) if local.lower() in ROLE_MAIL else local + "@????"
+
+    text = MAIL.sub(mail, text)
+    return head_meta(text, page)
 
 
 def build():

@@ -26,7 +26,7 @@ DNS is not managed here: the hostname is a CNAME to `<pull zone>.b-cdn.net` at I
 
 ## What is left out
 
-Pages that needed the server (member area, forums, member directory, search, counters, forms), engine code, and the history/administrator pages. Dead links become plain text; e-mail addresses are masked as `local@????`.
+Pages that needed the server (member area, forums, member directory, search, counters, forms), engine code, and the history/administrator pages. Links that needed the server become plain text; other external links are kept and open in a new window. Personal e-mail addresses are masked as `local@????`; role addresses (`tech@`, `irc@`...) and the sample addresses of the help pages are kept. Visitor data in the samples (IP, host) is replaced by `????`. The frame fragments and empty directory pages are `noindex` and out of the sitemap.
 
 ## Deploying
 

@@ -1,6 +1,6 @@
 <html>
 
-<head><script src="/frame-restore.js"></script>
+<head><script src="/frame-restore.js"></script><meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <title>Aide sur les services IRC de citeweb - GAIA </title>
 <style type="text/css">
 	A:link {color:#9999FF ; text-decoration:none}
@@ -38,51 +38,22 @@
     marchent que si vous etes dans le NickServ</strong></font></small></p>
     <p><small><font face="Verdana">&nbsp; <strong>/msg NickServ &lt;commande&gt;</strong></font></small></p>
     <p><small><font face="Verdana"><strong>Commandes</strong></font></small></p>
-    <p><!-- Script affichant des liens hypertextes ou une liste suivant le navigateur --> <script language="JavaScript"><!--
-			ssm = new Array();
-			adre = new Array();
-	
-			ssm[0] = "Register";
-			ssm[1] = "Drop";
-			ssm[2] = "Identify";
-			ssm[3] = "Info";
-			ssm[4] = "Invite";
-			ssm[5] = "Unban";
-			ssm[6] = "Mkick";
-			ssm[7] = "Mode";
-			ssm[8] = "UnMode";
-			ssm[9] = "AVoice";
-			ssm[10] = "AOP";
-			ssm[11] = "SOP";
-			ssm[12] = "Cofounder";
-			ssm[13] = "AKick";
-			ssm[14] = "Set";
-			for(var a = 0; a < ssm.length; a++)
-				adre[a] = "#"+ssm[a];
-
-			browserName = navigator.appName;
-			browserVer = parseInt(navigator.appVersion);
-			if (((browserName == "Netscape")&&(browserVer >= 3)) || ((browserName == "Microsoft Internet Explorer")&&(browserVer >= 4)))
-				version = "n3+"
-			else version = "x"
-			if (version == "x"){
-				for(var a=0;a<ssm.length;a++)
-					document.write("<p align=\"center\"><A HREF=\""+adre[a]+"\">"+ssm[a]+"</A></p>\n\r");
-			}else{
-				document.write("");
-				document.write("<select name=\"detail\" size=\"1\" tabindex=\"1\">\n\r");
-				for(var i = 0; i < ssm.length; i++) 
-				document.write("<option>"+ssm[i] +"</option>\n\r");
-				document.write("</select>\n\r");
-				document.write("");
-			}
-
-function gotou(){ 
-	document.location.href=adre[document.menu.detail.selectedIndex]; 
-	return true; 
-}
- 
-// -->;</script> </p>
+    <p><!-- Script affichant des liens hypertextes ou une liste suivant le navigateur --> <p align="center">Register</p>
+<p align="center">Drop</p>
+<p align="center">Identify</p>
+<p align="center">Info</p>
+<p align="center">Invite</p>
+<p align="center">Unban</p>
+<p align="center">Mkick</p>
+<p align="center">Mode</p>
+<p align="center">UnMode</p>
+<p align="center">AVoice</p>
+<p align="center">AOP</p>
+<p align="center">SOP</p>
+<p align="center">Cofounder</p>
+<p align="center">AKick</p>
+<p align="center">Set</p>
+ </p>
     <hr>
     <p><small><font face="Verdana"><a name="Help"><u><strong>Help</strong></u></a></font></small></p>
     <p><small><font face="Verdana">Cette commande demande a Gaia de vous envoyer via des
@@ -130,7 +101,8 @@ function gotou(){
     a toutes les personnes d'un canal</font></small></p>
     <p><small><font face="Verdana">Syntaxe : <strong>/msg Gaia MKick #canal</strong></font></small></p>
     <p><small><font face="Verdana">N.B : Cette commande ne sert (la plupart du temps) que
-    lorseque l'on veut empecher un TO (Take Over explications sur http://hiersay.citeweb.net)</font></small></p>
+    lorseque l'on veut empecher un TO (Take Over explications sur <a
+    href="http://hiersay.citeweb.net" target="_blank" rel="noopener">http://hiersay.citeweb.net</a>)</font></small></p>
     <p><small><font face="Verdana"><strong><a name="Mode">Mode</a> </strong>(a partir de AOP)</font></small></p>
     <p><small><font face="Verdana">Cette commande change les modes du canal</font></small></p>
     <p><small><font face="Verdana">Syntaxe : <strong>/msg Gaia #canal &lt;modes&gt;</strong></font></small></p>
@@ -271,7 +243,7 @@ function gotou(){
     <p>&nbsp;</p>
     <p><small><font face="Verdana">Voila vous connaisez toutes les fonction de gestion d'un
     canal si malgres ceci vous avez des problemes, verifiéz (commande INFO) que le canal
-    n'est pas deja utilisée, ou ecrivez a irc@????
+    n'est pas deja utilisée, ou ecrivez a irc@citeweb.net
     un des administrateurs vous repondra.</font></small></p>
     <p align="center"><small><font face="Verdana">Retour au sommaire</font></small></td>
     <td height="6" width="136" valign="top"><p align="LEFT">&nbsp; </td>
