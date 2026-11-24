@@ -71,16 +71,16 @@ HEADER = """<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
 """
 FOOTER = "\n        </td>\n    </tr>\n</table>\n</body>\n</html>\n"
 
-HOME_NOTE = """<p><font size="2" face="Verdana"><strong>&gt; archive</strong><br>
+HOME_NOTE = """<p><font size="2" face="Verdana" color="#777777"><strong>&gt; archive</strong><br>
 CITEWEB was a free web host for French-language personal sites, run by volunteers from 1996
 until it was sold in 1999. This archive keeps its 1998 redesign: the framed interface, the
 sign-up and hosting rules pages and the help pages (FTP, e-mail, IRC services...).</font></p>
-<p><font size="2" face="Verdana">The original home page of this frame was not captured. The pages
+<p><font size="2" face="Verdana" color="#777777">The original home page of this frame was not captured. The pages
 that needed the server (member area, forums, member directory, search, counters and forms) are not
 part of the archive.</font></p>
-<p><font size="2" face="Verdana"><strong>&gt; the 1997 site</strong><br>
+<p><font size="2" face="Verdana" color="#777777"><strong>&gt; the 1997 site</strong><br>
 The complete 1997 CITEWEB, with the sites it hosted, is at
-<a href="https://citeweb97.sauthier.family">citeweb97.sauthier.family</a>.</font></p>
+<a href="https://citeweb97.sauthier.family" style="color:#777777">citeweb97.sauthier.family</a>.</font></p>
 """
 
 NOT_FOUND = """<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
@@ -239,7 +239,7 @@ def build():
     for i, (rel, text) in enumerate(pages):  # the search form is gone: drop its label
         if rel == "citeweb/gh.htm":
             pages[i] = (rel, re.sub(r"<p><font[^>]*><strong>&gt;\s*rechercher sur CITEWEB<br>.*?</p>", "", text, flags=re.S))
-    pages.append(("citeweb/a.htm", HEADER % {"title": "CITEWEB (archive)", "nav": "1998"} + HOME_NOTE + FOOTER))
+    pages.append(("citeweb/a.htm", (HEADER % {"title": "CITEWEB (archive)", "nav": "1998"}).replace('<font size="3" face="Verdana">', '<font size="3" face="Verdana" color="#777777">') + HOME_NOTE + FOOTER))
     pages.append(("citeweb/pub.htm", '<body bgcolor="#FFFFFF"></body>\n'))
     pages.append(("404.html", NOT_FOUND))
 
