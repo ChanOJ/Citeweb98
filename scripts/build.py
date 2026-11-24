@@ -46,7 +46,9 @@ HTML_OPEN = re.compile(r"<html[^>]*>", re.I)
 ROBOTS_META = re.compile(r"<meta[^>]*name\s*=\s*[\"']?robots[\"']?[^>]*>", re.I)
 EXTERNAL = re.compile(r"^(?:https?|ftp|news|irc)://", re.I)
 # Links that need the server (counters, member area, webmail, ricochet redirect, chat settings): plain text.
-SERVER_LINK = re.compile(r"/membres/|/email\b|ricochet|\.ctw\b|chatcfg", re.I)
+SERVER_LINK = re.compile(r"/membres/|ricochet|\.ctw\b|chatcfg", re.I)
+# The webmail link (citeweb.net/email) is kept as written: like a broken external link, it stays.
+KEPT_AS_WRITTEN = re.compile(r"/email\b", re.I)
 # Role or example addresses, not a person: kept in clear (the help pages tell the reader where to write).
 ROLE_MAIL = {"tech", "login", "votrelogin", "moi", "moncopain", "webmaster2", "formulaires", "cc", "irc",
              "citeweb", "citeweb-subscribe", "citeweb-unsubscribe", "citeweb-help"}
@@ -57,8 +59,6 @@ VISITOR_SAMPLE = {"aide/formmail.htm": [("194.206.68.216", "????"), ("dial16.net
 NOINDEX_PAGES = {"citeweb/blanc.htm", "citeweb/centre.htm", "citeweb/depart.htm", "citeweb/gauche.htm",
                  "citeweb/gb.htm", "citeweb/gh.htm", "citeweb/haut.htm", "citeweb/milieu.htm",
                  "citeweb/pub.htm", "membres/index.htm", "sites/index.htm"}
-# Empty directory pages: their text goes grey, like the archive note on the home page.
-EMPTY_DIR_PAGES = {"membres/index.htm", "sites/index.htm"}
 
 HEADER = """<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
 <html>
@@ -153,6 +153,8 @@ def fix_link(url, page):
         host, rest = m.group(1).lower(), m.group(2)
         if host not in ("citeweb.net", "www.citeweb.net"):
             return u  # another site, alive or dead: kept as written in the original
+        if KEPT_AS_WRITTEN.search(rest):
+            return u
         if SERVER_LINK.search(rest):
             return None
         u = rest or "/"
@@ -205,10 +207,7 @@ def clean(text, page):
     if page.startswith("aide/irc/"):
         text = irc_menu(text)
     if page == "aide/index.htm":  # the IRC services help was reachable only from the bot menu
-        text = text.replace('<a href="irc.htm"', '<a href="/aide/irc/index.htm">services IRC (bots de service)</a><br>\n          <a href="irc.htm"', 1)
-    if page in EMPTY_DIR_PAGES:
-        text = re.sub(r'(?<![\w-])color="#(?:000000|3C976B)"', 'color="#777777"', text, flags=re.I)
-        text = text.replace('<font size="3" face="Verdana">', '<font size="3" face="Verdana" color="#777777">', 1)
+        text = text.replace('<a href="irc.htm"', '<a href="/aide/irc/index.htm" target="_blank" rel="noopener">services IRC (bots de service)</a><br>\n          <a href="irc.htm"', 1)
     text = FORM.sub("", text)
     text = INPUT.sub("", text)
     for old, new in VISITOR_SAMPLE.get(page, []):
