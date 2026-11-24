@@ -28,6 +28,17 @@ DNS is not managed here: the hostname is a CNAME to `<pull zone>.b-cdn.net` at I
 
 Pages that needed the server (member area, forums, member directory, search, counters, forms), engine code, and the history/administrator pages. Links that needed the server become plain text; other external links are kept and open in a new window. Personal e-mail addresses are masked as `local@????`; role addresses (`tech@`, `irc@`...) and the sample addresses of the help pages are kept. Visitor data in the samples (IP, host) is replaced by `????`. The frame fragments and empty directory pages are `noindex` and out of the sitemap.
 
+## Changes from the original site
+
+- Rebuilt as static HTML from a capture of the 1998 redesign (the frames and their pages are kept as they were) and from the help page templates.
+- Server includes inlined; member area, forums, search, counters and forms left out.
+- Links that needed the server (counters, member area, ricochet redirect, chat settings) became plain text. Other external links are kept as written and open in a new window, so the frames stay in place.
+- Personal e-mail addresses masked as `local@????`; role addresses (`tech@`, `irc@`, `login@`...) and the examples of the help pages kept.
+- Visitor data in the form-mail sample (IP address and host) replaced by `????`.
+- Pages without a charset declaration get one (Latin-1); the IRC bot menu is plain links; the IRC services help is linked from the help index.
+- Frame fragments and empty directory pages are `noindex` and out of the sitemap.
+- A short archive note replaces the home page, which was captured as a 404.
+
 ## Deploying
 
 - **Website**: push a change under `site/` to `main` → workflow *Website: deploy* uploads the changed files, deletes the removed ones, purges the CDN and runs the smoke test.
