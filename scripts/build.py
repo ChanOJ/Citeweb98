@@ -38,6 +38,16 @@ FORM = re.compile(r"</?form\b[^>]*>", re.I)
 INPUT = re.compile(r"<input\b[^>]*>", re.I)
 SCRIPT_LOC = re.compile(r"<SCRIPT[^>]*>[^<]*parent\.\w+\.location[^<]*</SCRIPT>", re.I | re.S)
 
+# Footer only where a family name, a private postal address or a person's own e-mail appears
+# (role addresses such as tech@ or login@ do not count).
+REMOVAL_PAGES = {"aide/ftp.htm"}
+REMOVAL_NOTE = (
+    '<div id="removal-note" style="clear:both;margin:28px auto 8px;padding:6px 8px 0;width:60%;'
+    'border-top:1px solid #808080;text-align:center;font:10px/14px Verdana,Arial,Helvetica,sans-serif;'
+    'color:#808080;background:transparent">To be removed from this page, '
+    '<a href="mailto:chandra_oj@pm.me" style="color:#808080;text-decoration:underline">contact me</a>.</div>'
+)
+
 HEADER = """<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
 <html>
 <head>
@@ -171,7 +181,11 @@ def clean(text, page):
 
     text = re.sub(r'(<area\b[^>]*?\bhref\s*=\s*")([^"]*)("[^>]*>)', area, text, flags=re.I)
     text = re.sub(r'(<area\b[^>]*?)\s+target\s*=\s*"centre"', r"\1", text, flags=re.I)
-    return MAIL.sub(lambda m: m.group(0).split("@")[0] + "@????", text)
+    text = MAIL.sub(lambda m: m.group(0).split("@")[0] + "@????", text)
+    if page in REMOVAL_PAGES and "removal-note" not in text:  # pages naming a person (family name)
+        i = text.lower().rfind("</body>")
+        text = text[:i] + REMOVAL_NOTE + text[i:] if i >= 0 else text + REMOVAL_NOTE
+    return text
 
 
 def build():
