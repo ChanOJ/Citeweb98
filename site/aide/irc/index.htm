@@ -1,6 +1,6 @@
 <html>
 
-<head><script src="/frame-restore.js"></script>
+<head><script src="/frame-restore.js"></script><meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <title>Aide sur les services IRC de citeweb</title>
 <style type="text/css">
 	A:link {color:#9999FF ; text-decoration:none}
@@ -39,40 +39,11 @@
           <td width="50%"><div align="right"><p><font face="Verdana, Arial, Helvetica, sans-serif"
           size="2">Aide sur </font>
 <!-- Script affichant des liens hypertextes ou une liste suivant le navigateur -->
-<script language="JavaScript"><!--
-			ssm = new Array();
-			adre = new Array();
-	
-			ssm[0] = "NickServ";
-			ssm[1] = "Gaia";
-			ssm[2] = "PostIt";
-			ssm[3] = "Zeus";
-			for(var a = 0; a < ssm.length; a++)
-				adre[a] = ssm[a]+".htm";
+<p align="center"><a href="/aide/irc/nickserv.htm">NickServ</a></p>
+<p align="center"><a href="/aide/irc/gaia.htm">Gaia</a></p>
+<p align="center"><a href="/aide/irc/postit.htm">PostIt</a></p>
+<p align="center"><a href="/aide/irc/zeus.htm">Zeus</a></p>
 
-			browserName = navigator.appName;
-			browserVer = parseInt(navigator.appVersion);
-			if (((browserName == "Netscape")&&(browserVer >= 3)) || ((browserName == "Microsoft Internet Explorer")&&(browserVer >= 4)))
-				version = "n3+"
-			else version = "x"
-			if (version == "x"){
-				for(var a=0;a<ssm.length;a++)
-					document.write("<p align=\"center\"><A HREF=\""+adre[a]+"\">"+ssm[a]+"</A></p>\n\r");
-			}else{
-				document.write("");
-				document.write("<select name=\"detail\" size=\"1\" tabindex=\"1\">\n\r");
-				for(var i = 0; i < ssm.length; i++) 
-				document.write("<option>"+ssm[i] +"</option>\n\r");
-				document.write("</select>\n\r");
-				document.write("");
-			}
-
-function gotou(){ 
-	document.location.href=adre[document.menu.detail.selectedIndex]; 
-	return true; 
-}
- 
-// -->;</script>
 
         </tr>
       </table>

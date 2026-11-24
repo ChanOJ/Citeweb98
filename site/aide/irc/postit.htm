@@ -1,6 +1,6 @@
 <html>
 
-<head><script src="/frame-restore.js"></script>
+<head><script src="/frame-restore.js"></script><meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <style type="text/css">
 	A:link {color:#9999FF ; text-decoration:none}
 	A:visited {color:#9999FF ; text-decoration:none}
@@ -34,44 +34,15 @@
     vous permet d'envoyer une note a une personne enregistré dans NickServ même si elle
     n'est pas presente sur IRC, elle la vera en se conectant.</font></p>
     <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><strong>Commandes</strong></font></p><p>
-<!-- Script affichant des liens hypertextes ou une liste suivant le navigateur --> <script language="JavaScript"><!--
-			ssm = new Array();
-			adre = new Array();
-	
-			ssm[0] = "List";
-			ssm[1] = "Read";
-			ssm[2] = "Send";
-			ssm[3] = "Del";
-			ssm[4] = "Purge";
-			ssm[5] = "Forward";
-			ssm[6] = "Recall";
-			ssm[7] = "Ignoreall";
-			for(var a = 0; a < ssm.length; a++)
-				adre[a] = "#"+ssm[a];
+<!-- Script affichant des liens hypertextes ou une liste suivant le navigateur --> <p align="center">List</p>
+<p align="center">Read</p>
+<p align="center">Send</p>
+<p align="center">Del</p>
+<p align="center">Purge</p>
+<p align="center">Forward</p>
+<p align="center">Recall</p>
+<p align="center">Ignoreall</p>
 
-			browserName = navigator.appName;
-			browserVer = parseInt(navigator.appVersion);
-			if (((browserName == "Netscape")&&(browserVer >= 3)) || ((browserName == "Microsoft Internet Explorer")&&(browserVer >= 4)))
-				version = "n3+"
-			else version = "x"
-			if (version == "x"){
-				for(var a=0;a<ssm.length;a++)
-					document.write("<p align=\"center\"><A HREF=\""+adre[a]+"\">"+ssm[a]+"</A></p>\n\r");
-			}else{
-				document.write("");
-				document.write("<select name=\"detail\" size=\"1\" tabindex=\"1\">\n\r");
-				for(var i = 0; i < ssm.length; i++) 
-				document.write("<option>"+ssm[i] +"</option>\n\r");
-				document.write("</select>\n\r");
-				document.write("");
-			}
-
-function gotou(){ 
-	document.location.href=adre[document.menu.detail.selectedIndex]; 
-	return true; 
-}
- 
-// -->;</script>
     </p>
     <p><a name="List"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><strong>List</strong></font></a></p>
     <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Cette commande liste tous
@@ -116,7 +87,7 @@ function gotou(){
     PostIt IgnoreAll {ON|OFF}</strong></font></p>
     <p><small><font face="Verdana">&nbsp;</font></small></p>
     <p><small><font face="Verdana">Voila vous connaisez toutes les fonction de gestion des
-    messages si malgres ceci vous avez des problemes ecrivez a irc@????
+    messages si malgres ceci vous avez des problemes ecrivez a irc@citeweb.net
     un des administrateurs vous repondra.</font></small></p>
     <p align="center"><small><font face="Verdana">Retour au sommaire</font></small></td>
     <td height="6" width="136" valign="top"><p align="LEFT">&nbsp; </td>

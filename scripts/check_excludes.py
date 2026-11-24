@@ -7,6 +7,7 @@ from pathlib import Path
 SITE = Path(__file__).resolve().parent.parent / "site"
 BAD_EXT = {".asp", ".inc", ".dll", ".exe", ".bat", ".ctw", ".bak", ".lck", ".psd", ".tga", ".txt~"}
 BAD_TEXT = re.compile(rb"<%|<!--\s*#include|<form\b|<input\b", re.I)
+IPV4 = re.compile(rb"\b\d{1,3}(?:\.\d{1,3}){3}\b")  # visitor IPs must not reach a page
 errors = []
 for p in sorted(SITE.rglob("*")):
     if not p.is_file():
@@ -15,6 +16,8 @@ for p in sorted(SITE.rglob("*")):
         errors.append("forbidden file: %s" % p.relative_to(SITE))
     elif p.suffix.lower() in {".htm", ".html"} and BAD_TEXT.search(p.read_bytes()):
         errors.append("server markup or form in %s" % p.relative_to(SITE))
+    elif p.suffix.lower() in {".htm", ".html"} and IPV4.search(p.read_bytes()):
+        errors.append("IP address in %s" % p.relative_to(SITE))
 if errors:
     sys.exit("\n".join(errors))
 print("check_excludes: ok")

@@ -1,6 +1,6 @@
 <html>
 
-<head><script src="/frame-restore.js"></script>
+<head><script src="/frame-restore.js"></script><meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <title>Aide sur les services IRC de citeweb - NickServ </title>
 <style type="text/css">
 	A:link {color:#9999FF ; text-decoration:none}
@@ -37,51 +37,22 @@
     car de l'interface web ceci ne marche pas)</font></small></p>
     <p><small><font face="Verdana">&nbsp; <strong>/msg NickServ &lt;commande&gt;</strong></font></small></p>
     <p><small><font face="Verdana"><strong>Commandes</strong></font></small></p>
-    <p><small><font face="Verdana"><!-- Script affichant des liens hypertextes ou une liste suivant le navigateur --> <script language="JavaScript"><!--
-			ssm = new Array();
-			adre = new Array();
-	
-			ssm[0] = "Register";
-			ssm[1] = "Drop";
-			ssm[2] = "Identify";
-			ssm[3] = "Info";
-			ssm[4] = "Ghost";
-			ssm[5] = "Recover";
-			ssm[6] = "Release";
-			ssm[7] = "Access";
-			ssm[8] = "Access-List";
-			ssm[9] = "Access-Add";
-			ssm[10] = "Access-Del";
-			ssm[11] = "Set";
-			ssm[12] = "Set-Kill";
-			ssm[13] = "Set-URL";
-			ssm[14] = "Set-PASSWD";
-			for(var a = 0; a < ssm.length; a++)
-				adre[a] = "#"+ssm[a];
-
-			browserName = navigator.appName;
-			browserVer = parseInt(navigator.appVersion);
-			if (((browserName == "Netscape")&&(browserVer >= 3)) || ((browserName == "Microsoft Internet Explorer")&&(browserVer >= 4)))
-				version = "n3+"
-			else version = "x"
-			if (version == "x"){
-				for(var a=0;a<ssm.length;a++)
-					document.write("<p align=\"center\"><A HREF=\""+adre[a]+"\">"+ssm[a]+"</A></p>\n\r");
-			}else{
-				document.write("");
-				document.write("<select name=\"detail\" size=\"1\" tabindex=\"1\">\n\r");
-				for(var i = 0; i < ssm.length; i++) 
-				document.write("<option>"+ssm[i] +"</option>\n\r");
-				document.write("</select>\n\r");
-				document.write("");
-			}
-
-function gotou(){ 
-	document.location.href=adre[document.menu.detail.selectedIndex]; 
-	return true; 
-}
- 
-// -->;</script> </font></small></p>
+    <p><small><font face="Verdana"><!-- Script affichant des liens hypertextes ou une liste suivant le navigateur --> <p align="center">Register</p>
+<p align="center">Drop</p>
+<p align="center">Identify</p>
+<p align="center">Info</p>
+<p align="center">Ghost</p>
+<p align="center">Recover</p>
+<p align="center">Release</p>
+<p align="center">Access</p>
+<p align="center">Access-List</p>
+<p align="center">Access-Add</p>
+<p align="center">Access-Del</p>
+<p align="center">Set</p>
+<p align="center">Set-Kill</p>
+<p align="center">Set-URL</p>
+<p align="center">Set-PASSWD</p>
+ </font></small></p>
     <p><small><font face="Verdana"><a name="Help"><u><strong>Help</strong></u></a></font></small></p>
     <p><small><font face="Verdana">Cette commande demande au NickServ de vous envoyer via des
     notices (type de message privé) la liste des fonctions existantes. Malheuresement elle
@@ -180,7 +151,7 @@ function gotou(){
     <p><small><font face="Verdana">&nbsp;</font></small></p>
     <p><small><font face="Verdana">Voila vous connaisez toutes les fonction de gestion d'un
     pseudonyme si malgres ceci vous avez des problemes, verifiéz (commande INFO) que le
-    pseudonyme n'est pas deja utilisée, ou ecrivez a irc@????
+    pseudonyme n'est pas deja utilisée, ou ecrivez a irc@citeweb.net
     un des administrateurs vous repondra.</font></small></p>
     <p align="center"><small><font face="Verdana">Retour au sommaire</font></small></td>
     <td height="6" width="136" valign="top"><p align="LEFT">&nbsp; </td>
