@@ -1,0 +1,199 @@
+<html>
+
+<head><script src="/frame-restore.js"></script>
+<title>Aide sur les services IRC de citeweb - NickServ </title>
+<style type="text/css">
+	A:link {color:#9999FF ; text-decoration:none}
+	A:visited {color:#9999FF ; text-decoration:none}
+	A:active {color:#9999FF ; text-decoration:none}
+	a:hover {  color: #C0C0C0}
+	.form {background-color:#000000; color:#FFFFFF; border:0; selected-color:#000000; font-face:verdana;}
+</style>
+</head>
+
+<body bgcolor="#000000" text="#FFFFFF" link="#FFFFFF" vlink="#FFFFFF" alink="#FFFFFF">
+<div align="center"></div><div align="center">
+
+
+<table width="590" border="0" cellpadding="0" cellspacing="0" bgcolor="#003399">
+    <tr> 
+      <td width="125" rowspan="4" valign="top"> 
+        <p><img src="logoho.gif" width="113" height="64"><img src="noir.gif" width="8" height="27" align="top"></p>
+      </td>
+      <td height="6" width="465" valign="top" > 
+        <div align="right"><img src="pub.gif" width="460" height="55"> </div>
+  
+      </td>
+    </tr>
+</table>
+
+<table width="590" border="0" cellpadding="10" cellspacing="0" bgcolor="#003399">
+  <tr>
+    <td width="414" valign="top"><br>
+    <font face="Verdana">Aide sur NickServ</font><hr>
+    <p><small><font face="Verdana">Le NickServ est un service qui gere les pseudonymes. Grace
+    a lui vous pouvez enregistrer, proteger votre pseudonyme.</font></small></p>
+    <p><small><font face="Verdana">Pour envoyer une commande tapez (a partir d'un client IRC,
+    car de l'interface web ceci ne marche pas)</font></small></p>
+    <p><small><font face="Verdana">&nbsp; <strong>/msg NickServ &lt;commande&gt;</strong></font></small></p>
+    <p><small><font face="Verdana"><strong>Commandes</strong></font></small></p>
+    <p><small><font face="Verdana"><!-- Script affichant des liens hypertextes ou une liste suivant le navigateur --> <script language="JavaScript"><!--
+			ssm = new Array();
+			adre = new Array();
+	
+			ssm[0] = "Register";
+			ssm[1] = "Drop";
+			ssm[2] = "Identify";
+			ssm[3] = "Info";
+			ssm[4] = "Ghost";
+			ssm[5] = "Recover";
+			ssm[6] = "Release";
+			ssm[7] = "Access";
+			ssm[8] = "Access-List";
+			ssm[9] = "Access-Add";
+			ssm[10] = "Access-Del";
+			ssm[11] = "Set";
+			ssm[12] = "Set-Kill";
+			ssm[13] = "Set-URL";
+			ssm[14] = "Set-PASSWD";
+			for(var a = 0; a < ssm.length; a++)
+				adre[a] = "#"+ssm[a];
+
+			browserName = navigator.appName;
+			browserVer = parseInt(navigator.appVersion);
+			if (((browserName == "Netscape")&&(browserVer >= 3)) || ((browserName == "Microsoft Internet Explorer")&&(browserVer >= 4)))
+				version = "n3+"
+			else version = "x"
+			if (version == "x"){
+				for(var a=0;a<ssm.length;a++)
+					document.write("<p align=\"center\"><A HREF=\""+adre[a]+"\">"+ssm[a]+"</A></p>\n\r");
+			}else{
+				document.write("");
+				document.write("<select name=\"detail\" size=\"1\" tabindex=\"1\">\n\r");
+				for(var i = 0; i < ssm.length; i++) 
+				document.write("<option>"+ssm[i] +"</option>\n\r");
+				document.write("</select>\n\r");
+				document.write("");
+			}
+
+function gotou(){ 
+	document.location.href=adre[document.menu.detail.selectedIndex]; 
+	return true; 
+}
+ 
+// -->;</script> </font></small></p>
+    <p><small><font face="Verdana"><a name="Help"><u><strong>Help</strong></u></a></font></small></p>
+    <p><small><font face="Verdana">Cette commande demande au NickServ de vous envoyer via des
+    notices (type de message privé) la liste des fonctions existantes. Malheuresement elle
+    est en anglais donc a vos dictionnaires. Cette commande est tres pratique en cas d'oubli
+    d'une fonction.</font></small></p>
+    <p><small><font face="Verdana"><a name="Register"><strong><u>Register</u></strong></a></font></small></p>
+    <p><small><font face="Verdana">Cette commande est la premiere commande que vous devez
+    envoyer. Elle permet de proteger son pseudonyme, grace a elle vous aurez access a toutes
+    les autres commandes</font></small></p>
+    <p><small><font face="Verdana">Syntaxe : <strong>/msg NickServ Register &lt;mot de
+    passe&gt;</strong></font></small></p>
+    <p><small><font face="Verdana">N.B : Elle enregistre votre pseudonyme courant, donc pensez
+    a utiliser le bon pseudonyme au moment ou vous l'envoyez. Le mot de passe doit faire plus
+    de 5 lettres et doit etre en un seul mot (exemple : <strong>Papa</strong> est invalide
+    (car trop court) et <strong>ma maman fait des gateaux</strong> est aussi invalide (car en
+    plusieurs mots) )</font></small></p>
+    <p><small><font face="Verdana"><a name="Drop"><strong><u>Drop</u></strong></a> (vous devez
+    etre authetifié)</font></small></p>
+    <p><small><font face="Verdana">Cette commande est l'inverse de la commande <strong>Register</strong>
+    elle enleve votre pseudonyme de la base de donné. Vous pouvez l'utilisé si vous voulez
+    vous arreter de faire de l'IRC.</font></small></p>
+    <p><small><font face="Verdana">Syntaxe : <strong>/msg NickServ Drop</strong></font></small></p>
+    <p><small><font face="Verdana"><a name="Indentify"><strong><u>Indentify</u></strong></a></font></small></p>
+    <p><small><font face="Verdana">Cette commande est la commande que vous utiliserez (a mon
+    avis le plus souvent). Elle permet de vous identifier.</font></small></p>
+    <p><small><font face="Verdana">Syntaxe : <strong>/msg NickServ Identify [Pseudo] &lt;mot
+    de passe&gt;</strong></font></small></p>
+    <p><small><font face="Verdana">N.B : Le mot de passe corespond a celui que vous avez
+    utilisé quand vous avez envoyé la commande <strong>Register</strong></font></small></p>
+    <p><small><font face="Verdana">Conseil : Quasiment tout les clients IRC permetent
+    d'envoyer des commandes quand vous vous connectez au serveur. La plupart du temps ce champ
+    se nomme <strong>Perform</strong> sous mIRC cliquez sur <u>File</u> ensuite <u>Option</u>
+    et ensuite recherchez l'onglet (si vous etes sur une version anterieure a la version 5.5).
+    Dans ce champs tapez <strong>/msg NickServ Identify &lt;pseudo&gt; &lt;passe&gt;</strong>
+    affin de vous authentifier à la connection.</font></small></p>
+    <p align="left"><small><font face="Verdana"><a name="Info"><strong><u>Info</u></strong></a></font></small></p>
+    <p><small><font face="Verdana">Cette commande demande au NickServ de vous envoyer les
+    information sur un psudonyme (Utilisée ou non, Date de la derniere authentification,
+    hotes valides)</font></small></p>
+    <p><small><font face="Verdana">Syntaxe : <strong>/msg NickServ Info &lt;pseudo&gt;</strong></font></small></p>
+    <p><small><font face="Verdana"><a name="Ghost"><strong><u>Ghost</u></strong></a></font></small></p>
+    <p><small><font face="Verdana">Cette commande sert a expulser une personne qui utilise
+    votre pseudonyme</font></small></p>
+    <p><small><font face="Verdana">Synatxe : <strong>/msg NickServ Ghost &lt;pseudo&gt;
+    &lt;mot de passe&gt;</strong></font></small></p>
+    <p align="left"><small><font face="Verdana"><a name="Recover"><strong><u>Recover</u></strong></a></font></small></p>
+    <p><small><font face="Verdana">Cette commande est un peu complexe a expliquer, mais ...
+    tres utile des que l'on sait bien s'en servir. Elle coupe la connection de la personne qui
+    utilise votre pseudo (comme la fonction ghost) mais en plus crée un utilisateur virtuel
+    avec votre pseudo afin que personne ne puisse le prendre.</font></small></p>
+    <p><small><font face="Verdana">Syntaxe : <strong>/msg NickServ Recover &lt;pseudo&gt;
+    &lt;mot de passe&gt;</strong></font></small></p>
+    <p><small><font face="Verdana">Conseil : Si vous n'etes pas tres bon en IRC utiliséz la
+    commande <strong>SET KILL</strong> expliquée plus loin.</font></small></p>
+    <p><small><font face="Verdana"><a name="Release"><strong><u>Release</u></strong></a></font></small></p>
+    <p><small><font face="Verdana">Cette commande est l'inverse de la commande <strong>Recover</strong>
+    elle enleve l'utilisateur virtuel utilisant votre pseudo.</font></small></p>
+    <p><small><font face="Verdana">Syntaxe : <strong>/msg NickServ Release &lt;pseudo&gt;
+    &lt;mot de passe&gt;</strong></font></small></p>
+    <p><small><font face="Verdana"><a name="Access"><strong><u>Access</u></strong></a> (Vous
+    devez etre identifié)</font></small></p>
+    <p><small><font face="Verdana">Vous permet de gerer la liste des hotes autorisée (lieux
+    de connection) pour l'utilisation de votre pseudo. Elle possede plusieurs sous-fonction</font></small></p>
+    <blockquote>
+      <p><small><font face="Verdana"><a name="Access-List"><strong><u>List</u></strong></a></font></small></p>
+      <p><small><font face="Verdana">Affiche la liste des hotes autorisée</font></small></p>
+      <p><small><font face="Verdana">Syntaxe : <strong>/msg NickServ Access List</strong></font></small></p>
+      <p><small><font face="Verdana"><a name="Access-Add"><strong><u>Add</u></strong></a></font></small></p>
+      <p><small><font face="Verdana">Ajoute une hote autorisée</font></small></p>
+      <p><small><font face="Verdana">Syntaxe : <strong>/msg NickServ Access Add &lt;masque&gt;</strong></font></small></p>
+      <p><small><font face="Verdana"><a name="Access-Del"><strong><u>Del</u></strong></a></font></small></p>
+      <p><small><font face="Verdana">Enleve un masque autorisé</font></small></p>
+      <p><small><font face="Verdana">Syntaxe : <strong>/msg NickServ Access Del &lt;masque&gt;</strong></font></small></p>
+    </blockquote>
+    <p><small><font face="Verdana"><a name="Set"><strong><u>Set</u></strong></a> (vous devez
+    etre authentifié)</font></small></p>
+    <p><small><font face="Verdana">Cette fonction sert a modifier la gestion de votre pseudo.
+    Elle possede plusieurs sous fonction</font></small></p>
+    <blockquote>
+      <p><small><font face="Verdana"><a name="Set-Kill"><strong><u>Kill</u></strong></a></font></small></p>
+      <p><small><font face="Verdana">Cette fonction active (desactive) l'autokill. Si il est
+      activé vous avez 40 secondes pour vous authentifié ou changer de pseudo. Sinon le
+      serveur coupe votre connection.</font></small></p>
+      <p><small><font face="Verdana">Syntaxe : <strong>/msg NickServ Set Kill {ON|OFF}</strong></font></small></p>
+      <p><small><font face="Verdana">N.B Vous devez mettre ON ou bien OFF mais pas les deux</font></small></p>
+      <p><small><font face="Verdana"><a name="Set-URL"><strong><u>URL</u></strong></a></font></small></p>
+      <p><small><font face="Verdana">Cette commande change l'adresse de votre page web. </font></small></p>
+      <p><small><font face="Verdana">Syntaxe : <strong>/msg NickServ Set URL [Adresse]</strong></font></small></p>
+      <p><small><font face="Verdana">Si vous ne mettez pas d'adresse il considere que vous n'en
+      posedez pas</font></small></p>
+      <p><small><font face="Verdana"><a name="Set-PASSWD"><strong><u>PASSWD</u></strong></a></font></small></p>
+      <p><small><font face="Verdana">Change votre mot de passe</font></small></p>
+      <p><small><font face="Verdana">Syntaxe : <strong>/msg NickServ Set PASSWD &lt;mot de
+      passe&gt;</strong></font></small></p>
+    </blockquote>
+    <p><small><font face="Verdana">&nbsp;</font></small></p>
+    <p><small><font face="Verdana">Voila vous connaisez toutes les fonction de gestion d'un
+    pseudonyme si malgres ceci vous avez des problemes, verifiéz (commande INFO) que le
+    pseudonyme n'est pas deja utilisée, ou ecrivez a irc@????
+    un des administrateurs vous repondra.</font></small></p>
+    <p align="center"><small><font face="Verdana">Retour au sommaire</font></small></td>
+    <td height="6" width="136" valign="top"><p align="LEFT">&nbsp; </td>
+  </tr>
+</table>
+
+<table width="590" border="0" cellpadding="0" cellspacing="0" bgcolor="#003399">
+  <tr>
+    <td width="59" valign="top"></td>
+    <td height="6" width="484" valign="top"></td>
+    <td height="6" width="47" valign="top"><img src="basd.gif" width="54" height="22"></td>
+  </tr>
+</table>
+</div>
+</body>
+</html>

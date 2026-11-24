@@ -1,0 +1,290 @@
+<html>
+
+<head><script src="/frame-restore.js"></script>
+<title>Aide sur les services IRC de citeweb - GAIA </title>
+<style type="text/css">
+	A:link {color:#9999FF ; text-decoration:none}
+	A:visited {color:#9999FF ; text-decoration:none}
+	A:active {color:#9999FF ; text-decoration:none}
+	a:hover {  color: #C0C0C0}
+	.form {background-color:#000000; color:#FFFFFF; border:0; selected-color:#000000; font-face:verdana;}
+</style>
+</head>
+
+<body bgcolor="#000000" text="#FFFFFF" link="#FFFFFF" vlink="#FFFFFF" alink="#FFFFFF">
+<div align="center">
+
+<table width="590" border="0" cellpadding="0" cellspacing="0" bgcolor="#003399">
+    <tr> 
+      <td width="125" rowspan="4" valign="top"> 
+        <p><img src="logoho.gif" width="113" height="64"><img src="noir.gif" width="8" height="27" align="top"></p>
+      </td>
+      <td height="6" width="465" valign="top" > 
+        <div align="right"><img src="pub.gif" width="460" height="55"> </div>
+        </td>
+    </tr>
+</table>
+
+<table width="590" border="0" cellpadding="10" cellspacing="0" bgcolor="#003399">
+  <tr>
+    <td width="414" valign="top"><br>
+    <font face="Verdana">Aide sur Gaia</font><hr>
+    <p><font size="2" face="Verdana">Gaia est le service qui vous permet de créer votre
+    propre canal, avec vos listes d'operateurs, etc.. Ce service n'est pas géré avec des
+    Eggdrop (pour ceux qui conaisent) et est tres stables (les bots font partie du serveur
+    citeworld, qui n'accepte aucune conection).</font></p>
+    <p><small><font face="Verdana">Pour envoyer une commande tapez (a partir d'un client IRC,
+    car de l'interface web ceci ne marche pas). <strong>Attention toutes les commandes ne
+    marchent que si vous etes dans le NickServ</strong></font></small></p>
+    <p><small><font face="Verdana">&nbsp; <strong>/msg NickServ &lt;commande&gt;</strong></font></small></p>
+    <p><small><font face="Verdana"><strong>Commandes</strong></font></small></p>
+    <p><!-- Script affichant des liens hypertextes ou une liste suivant le navigateur --> <script language="JavaScript"><!--
+			ssm = new Array();
+			adre = new Array();
+	
+			ssm[0] = "Register";
+			ssm[1] = "Drop";
+			ssm[2] = "Identify";
+			ssm[3] = "Info";
+			ssm[4] = "Invite";
+			ssm[5] = "Unban";
+			ssm[6] = "Mkick";
+			ssm[7] = "Mode";
+			ssm[8] = "UnMode";
+			ssm[9] = "AVoice";
+			ssm[10] = "AOP";
+			ssm[11] = "SOP";
+			ssm[12] = "Cofounder";
+			ssm[13] = "AKick";
+			ssm[14] = "Set";
+			for(var a = 0; a < ssm.length; a++)
+				adre[a] = "#"+ssm[a];
+
+			browserName = navigator.appName;
+			browserVer = parseInt(navigator.appVersion);
+			if (((browserName == "Netscape")&&(browserVer >= 3)) || ((browserName == "Microsoft Internet Explorer")&&(browserVer >= 4)))
+				version = "n3+"
+			else version = "x"
+			if (version == "x"){
+				for(var a=0;a<ssm.length;a++)
+					document.write("<p align=\"center\"><A HREF=\""+adre[a]+"\">"+ssm[a]+"</A></p>\n\r");
+			}else{
+				document.write("");
+				document.write("<select name=\"detail\" size=\"1\" tabindex=\"1\">\n\r");
+				for(var i = 0; i < ssm.length; i++) 
+				document.write("<option>"+ssm[i] +"</option>\n\r");
+				document.write("</select>\n\r");
+				document.write("");
+			}
+
+function gotou(){ 
+	document.location.href=adre[document.menu.detail.selectedIndex]; 
+	return true; 
+}
+ 
+// -->;</script> </p>
+    <hr>
+    <p><small><font face="Verdana"><a name="Help"><u><strong>Help</strong></u></a></font></small></p>
+    <p><small><font face="Verdana">Cette commande demande a Gaia de vous envoyer via des
+    notices (type de message privé) la liste des fonctions existantes. Malheuresement elle
+    est en anglais donc a vos dictionnaires. Cette commande est tres pratique en cas d'oubli
+    d'une fonction.</font></small></p>
+    <p><small><font face="Verdana"><a name="Register"><strong><u>Register</u></strong></a></font></small></p>
+    <p><small><font face="Verdana">Cette commande est la premiere commande que vous devez
+    envoyer. Elle permet d'enregistrer, grace a elle vous aurez access a toutes les autres
+    commandes</font></small></p>
+    <p><small><font face="Verdana">Syntaxe : <strong>/msg Gaia Register #Canal &lt;mot de
+    passe&gt; &lt;description&gt;</strong></font></small></p>
+    <p><small><font face="Verdana">N.B : Le mot de passe, deviend le mot de passe
+    Administrateur. La seule personne qui doit conaitre ce mot de passe ... c'est VOUS.</font></small></p>
+    <p><small><font face="Verdana"><a name="Drop"><strong><u>Drop</u></strong></a> (vous devez
+    etre authetifié)</font></small></p>
+    <p><small><font face="Verdana">Cette commande est l'inverse de la commande <strong>Register</strong>
+    elle enleve votre canal de la base de donné. Vous pouvez l'utilisé si votre canal devint
+    peu (voire pas) fréquenté..</font></small></p>
+    <p><small><font face="Verdana">Syntaxe : <strong>/msg Gaia Drop &lt;mot de passe&gt;</strong></font></small></p>
+    <p><a name="Info"><small><font face="Verdana"><strong>Info</strong></font></small></a></p>
+    <p><small><font face="Verdana">Cette commande vous permet de savoir si un canal est
+    enregistré, et vous envoie la description et l'adresse de sa page web.</font></small></p>
+    <p><small><font face="Verdana">Syntaxe : <strong>/msg Gaia Info #canal</strong></font></small></p>
+    <p><a name="Identify"><small><font face="Verdana"><strong>Identify</strong></font></small></a></p>
+    <p><small><font face="Verdana">Cette commande vous permet de conferer a l'utilisateur qui
+    l'envoie les commandes de créateur du cannal.</font></small></p>
+    <p><small><font face="Verdana">Syntaxe : <strong>/msg Gaia Identify #canal &lt;mot de
+    passe&gt;</strong></font></small></p>
+    <p><small><font face="Verdana">N.B : N'utilisé cette commande que sur le createur réel
+    de la salle sinon vous vous exposé a de gros risques (entre autre de perdre votre place
+    de createur)</font></small></p>
+    <p><small><font face="Verdana"><strong><a name="Invite">Invite</a> </strong>(ne marche que
+    si vous etes au moins AOP)</font></small></p>
+    <p><small><font face="Verdana">Cette commande vous invite sur un canal en mode +i que si
+    vous etes au moins AOP</font></small></p>
+    <p><small><font face="Verdana">Syntaxe : <strong>/msg Invite #chanal</strong></font></small></p>
+    <p><small><font face="Verdana"><a name="Unban"><strong>Unban</strong></a> (a partir de
+    AOP)</font></small></p>
+    <p><small><font face="Verdana">Vous permet d'enlever tous les bans du canal</font></small></p>
+    <p><small><font face="Verdana">Syntaxe : <strong>/msg Gaia Unban #canal</strong></font></small></p>
+    <p><small><font face="Verdana"><strong><a name="MKick">MKick</a> </strong>(a partir de
+    AOP)</font></small></p>
+    <p><small><font face="Verdana">Cette commande éffectue un 'Mass Kick' soit impose un kick
+    a toutes les personnes d'un canal</font></small></p>
+    <p><small><font face="Verdana">Syntaxe : <strong>/msg Gaia MKick #canal</strong></font></small></p>
+    <p><small><font face="Verdana">N.B : Cette commande ne sert (la plupart du temps) que
+    lorseque l'on veut empecher un TO (Take Over explications sur http://hiersay.citeweb.net)</font></small></p>
+    <p><small><font face="Verdana"><strong><a name="Mode">Mode</a> </strong>(a partir de AOP)</font></small></p>
+    <p><small><font face="Verdana">Cette commande change les modes du canal</font></small></p>
+    <p><small><font face="Verdana">Syntaxe : <strong>/msg Gaia #canal &lt;modes&gt;</strong></font></small></p>
+    <p><small><font face="Verdana"><strong><a name="UnMode">UnMode</a> </strong>(a partir de
+    AOP)</font></small></p>
+    <p><small><font face="Verdana">Cette commande enleve tous les modes d'un canal. Elle est
+    tres peu utilisée.</font></small></p>
+    <p><small><font face="Verdana">Syntaxe : <strong>/msg Gaia unmode #canal</strong></font></small></p>
+    <p><small><font face="Verdana"><strong><a name="AVoice">AVoice</a> </strong>(a partir de
+    AOP)</font></small></p>
+    <p><small><font face="Verdana">Cette commande posséde plusieurs sous commandes. Elle vous
+    peremet de gere la liste des AutoVoice de votre canal</font></small></p>
+    <blockquote>
+      <p><small><font face="Verdana"><strong>List</strong></font></small></p>
+      <p><small><font face="Verdana">Liste la liste des AutoVoice</font></small></p>
+      <p><small><font face="Verdana">Syntaxe : <strong>/msg Gaia AVoice #canal LIST</strong></font></small></p>
+      <p><small><font face="Verdana"><strong>Add</strong></font></small></p>
+      <p><small><font face="Verdana">Ajoute un utilisateur a la liste des Auto Voice</font></small></p>
+      <p><small><font face="Verdana">Syntaxe : <strong>/msg Gaia AVoice #canal Add
+      &lt;pseudo&gt;</strong></font></small></p>
+      <p><small><font face="Verdana"><strong>Del</strong></font></small></p>
+      <p><small><font face="Verdana">Enleve un utilisateur de la liste des Auto Voice</font></small></p>
+      <p><small><font face="Verdana">Syntaxe : <strong>/msg Gaia AVoice #canal Del
+      &lt;pseudo&gt;</strong></font></small></p>
+    </blockquote>
+    <p><small><font face="Verdana"><a name="AOP"><strong>AOP</strong></a> (a partir de SOP)</font></small></p>
+    <p><small><font face="Verdana">Cette commande posséde plusieurs sous commandes. Elle vous
+    peremet de gere la liste des Auto operateurs de votre canal</font></small></p>
+    <blockquote>
+      <p><small><font face="Verdana"><strong>List</strong></font></small></p>
+      <p><small><font face="Verdana">Liste la liste des Auto Operateurs</font></small></p>
+      <p><small><font face="Verdana">Syntaxe : <strong>/msg Gaia AOP #canal LIST</strong></font></small></p>
+      <p><small><font face="Verdana"><strong>Add</strong></font></small></p>
+      <p><small><font face="Verdana">Ajoute un utilisateur a la liste des Auto Operateurs</font></small></p>
+      <p><small><font face="Verdana">Syntaxe : <strong>/msg Gaia AOP #canal Add &lt;pseudo&gt;</strong></font></small></p>
+      <p><small><font face="Verdana"><strong>Del</strong></font></small></p>
+      <p><small><font face="Verdana">Enleve un utilisateur de la liste des Auto Operateurs</font></small></p>
+    </blockquote>
+    <blockquote>
+      <p><small><font face="Verdana">Syntaxe : <strong>/msg Gaia AOP #canal Del &lt;pseudo&gt;</strong></font></small></p>
+    </blockquote>
+    <p><small><font face="Verdana"><a name="SOP"><strong>SOP</strong></a> (a partir de
+    Cofounder)</font></small></p>
+    <p><small><font face="Verdana">Cette commande posséde plusieurs sous commandes. Elle vous
+    peremet de gere la liste des Super operateurs de votre canal</font></small></p>
+    <blockquote>
+      <p><small><font face="Verdana"><strong>List</strong></font></small></p>
+      <p><small><font face="Verdana">Liste la liste des super operateurs</font></small></p>
+      <p><small><font face="Verdana">Syntaxe : <strong>/msg Gaia SOP #canal LIST</strong></font></small></p>
+      <p><small><font face="Verdana"><strong>Add</strong></font></small></p>
+      <p><small><font face="Verdana">Ajoute un utilisateur a la liste des Super Operateurs</font></small></p>
+      <p><small><font face="Verdana">Syntaxe : <strong>/msg Gaia SOP #canal Add &lt;pseudo&gt;</strong></font></small></p>
+      <p><small><font face="Verdana"><strong>Del</strong></font></small></p>
+      <p><small><font face="Verdana">Enleve un utilisateur de la liste des Super Operateurs</font></small></p>
+      <p><small><font face="Verdana">Syntaxe : <strong>/msg Gaia SOP #canal Del &lt;pseudo&gt;</strong></font></small></p>
+    </blockquote>
+    <p><small><font face="Verdana"><a name="COFOUNDER"><strong>COFOUNDER</strong></a> (a
+    partir de fondateur)</font></small></p>
+    <p><small><font face="Verdana">Cette commande posséde plusieurs sous commandes. Elle vous
+    peremet de gere la liste des Co-fondateurs de votre canal</font></small></p>
+    <blockquote>
+      <p><small><font face="Verdana"><strong>List</strong></font></small></p>
+      <p><small><font face="Verdana">Liste la liste des Co-fondateurs</font></small></p>
+      <p><small><font face="Verdana">Syntaxe : <strong>/msg Gaia COFOUNDER #canal LIST</strong></font></small></p>
+      <p><small><font face="Verdana"><strong>Add</strong></font></small></p>
+      <p><small><font face="Verdana">Ajoute un utilisateur a la liste des Co-fondateurs</font></small></p>
+      <p><small><font face="Verdana">Syntaxe : <strong>/msg Gaia COFOUNDER #canal Add
+      &lt;pseudo&gt;</strong></font></small></p>
+      <p><small><font face="Verdana"><strong>Del</strong></font></small></p>
+      <p><small><font face="Verdana">Enleve un utilisateur de la liste des Co-fondateurs</font></small></p>
+      <p><small><font face="Verdana">Syntaxe : <strong>/msg Gaia COFOUNDER #canal Del
+      &lt;pseudo&gt;</strong></font></small></p>
+    </blockquote>
+    <p><small><font face="Verdana"><a name="AKick"><strong>AKick</strong></a> (a partir de
+    AOP)</font></small></p>
+    <p><small><font face="Verdana">Cette commande posséde plusieurs sous commandes. Elle vous
+    peremet de gere la liste des Auto Kick de votre canal. Cette liste empeche le proprietaire
+    d'un nick de rentrer, et ne depend pas de bans</font></small></p>
+    <blockquote>
+      <p><small><font face="Verdana"><strong>List</strong></font></small></p>
+      <p><small><font face="Verdana">Liste la liste des Auto Kick</font></small></p>
+      <p><small><font face="Verdana">Syntaxe : <strong>/msg Gaia AKICK #canal LIST</strong></font></small></p>
+      <p><small><font face="Verdana"><strong>Add</strong></font></small></p>
+      <p><small><font face="Verdana">Ajoute un utilisateur a la liste des Auto Kick</font></small></p>
+      <p><small><font face="Verdana">Syntaxe : <strong>/msg Gaia AKICK #canal Add &lt;pseudo&gt;</strong></font></small></p>
+      <p><small><font face="Verdana"><strong>Del</strong></font></small></p>
+      <p><small><font face="Verdana">Enleve un utilisateur de la liste des Auto Kick</font></small></p>
+      <p><small><font face="Verdana">Syntaxe : <strong>/msg Gaia AKICK #canal Del &lt;pseudo&gt;</strong></font></small></p>
+    </blockquote>
+    <p><small><font face="Verdana"><a name="SET"><strong>SET</strong></a> (a partir de
+    Fondateur)</font></small></p>
+    <p><small><font face="Verdana">Cette commande possede plusieurs sous commandes</font></small></p>
+    <blockquote>
+      <p><small><font face="Verdana"><strong>Description</strong></font></small></p>
+      <p><small><font face="Verdana">Change la desciption du canal</font></small></p>
+      <p><small><font face="Verdana">Syntaxe : <strong>/msg Gaia Set #canal DESCRIPTION
+      &lt;description&gt;</strong></font></small></p>
+      <p><small><font face="Verdana"><strong>URL</strong></font></small></p>
+      <p><small><font face="Verdana">Change l'adresse associé au canal</font></small></p>
+      <p><small><font face="Verdana">Syntaxe : <strong>/msg Gaia Set #canal URL [URL]</strong></font></small></p>
+      <p><small><font face="Verdana">N.B : Si vous ometez le parametre alors ocune page n'est
+      associé au canal</font></small></p>
+      <p><small><font face="Verdana"><strong>Founder</strong></font></small></p>
+      <p><small><font face="Verdana">Cette commande vous permet d'enlever conferer a vous mêmes
+      le pouvori e fondateur.</font></small></p>
+      <p><small><font face="Verdana">Syntaxe : <strong>/msg Gaia Set #canal FOUNDER {ON|OFF}</strong></font></small></p>
+      <p><small><font face="Verdana">N.B : L'ennui c que je n'ai pas compris a quoi sert le
+      parametre ON, car pour executer cette commande vous devez etre fondateur.</font></small></p>
+      <p><small><font face="Verdana"><strong>Protect</strong></font></small></p>
+      <p><small><font face="Verdana">Met le canal en mode +nt-iklmsp en continu, ce qui empeche
+      un operateur de changer les modes du canal. Cette commande sera surement utilisé sur
+      #Citeweb mais je vous conseille vivement de le laisser OFF ce qui permet aux operateurs de
+      mieux gerer un canal.</font></small></p>
+      <p><small><font face="Verdana">Syntaxe : <strong>/msg Gaia Set #canal PROTECT {ON|OFF}</strong></font></small></p>
+      <p><small><font face="Verdana"><strong>InviteOnly</strong></font></small></p>
+      <p><small><font face="Verdana">Cette commande sert a mettre un canal en mode +i en
+      continu. Ceci peut servir a créer un canal tres fermé (je ne vois pas l'utilité).</font></small></p>
+      <p><small><font face="Verdana">Syntaxe : <strong>/msg Gaia Set #canal INVITEONLY {ON|OFF}</strong></font></small></p>
+      <p><small><font face="Verdana"><strong>Secret</strong></font></small></p>
+      <p><small><font face="Verdana">Cette commande met votre canal en mode +s (on ne le voit
+      donc pas dans les listes des cannaux)</font></small></p>
+      <p><small><font face="Verdana">Syntaxe : <strong>/msg Gaia Set #canal SECRET {ON|OFF}</strong></font></small></p>
+      <p><small><font face="Verdana"><strong>MODERATE</strong></font></small></p>
+      <p><small><font face="Verdana">Cette commande passe le canal en mode +m. Je ne vois pas
+      non plus l'utilitée de cette fonction, car le +m en continu detruit (a court termes) un
+      canal.</font></small></p>
+      <p><small><font face="Verdana">Syntaxe : <strong>/msg Gaia Set #canal MODERATE {ON|OFF}</strong></font></small></p>
+      <p><small><font face="Verdana"><strong>Restrict</strong></font></small></p>
+      <p><small><font face="Verdana">Cette commande authorise seulement les Auto Voice ou au
+      dela a rejoindre un canal. Je ne vois pas non plus son interet.</font></small></p>
+      <p><small><font face="Verdana">Syntaxe : <strong>/msg Gaia Set #canal RESTRICT {ON|OFF}</strong></font></small></p>
+      <p><small><font face="Verdana"><strong>PASSWD</strong></font></small></p>
+      <p><small><font face="Verdana">Cette commande change le mot de passe administrateur du
+      canal.</font></small></p>
+      <p><small><font face="Verdana">Syntaxe : <strong>/msg Gaia Set #canal PASSWD &lt;mot de
+      passe&gt;</strong></font></small></p>
+    </blockquote>
+    <p>&nbsp;</p>
+    <p><small><font face="Verdana">Voila vous connaisez toutes les fonction de gestion d'un
+    canal si malgres ceci vous avez des problemes, verifiéz (commande INFO) que le canal
+    n'est pas deja utilisée, ou ecrivez a irc@????
+    un des administrateurs vous repondra.</font></small></p>
+    <p align="center"><small><font face="Verdana">Retour au sommaire</font></small></td>
+    <td height="6" width="136" valign="top"><p align="LEFT">&nbsp; </td>
+  </tr>
+</table>
+
+<table width="590" border="0" cellpadding="0" cellspacing="0" bgcolor="#003399">
+  <tr>
+    <td width="59" valign="top"></td>
+    <td height="6" width="484" valign="top"></td>
+    <td height="6" width="47" valign="top"><img src="basd.gif" width="54" height="22"></td>
+  </tr>
+</table>
+</div>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<html>
+
+<head><script src="/frame-restore.js"></script>
+<style type="text/css">
+	A:link {color:#9999FF ; text-decoration:none}
+	A:visited {color:#9999FF ; text-decoration:none}
+	A:active {color:#9999FF ; text-decoration:none}
+	a:hover {  color: #C0C0C0}
+	.form {background-color:#000000; color:#FFFFFF; border:0; selected-color:#000000; font-face:verdana;}
+</style>
+<title>Aide sur les services IRC de citeweb - PostIt</title>
+</head>
+
+<body bgcolor="#000000" text="#FFFFFF" link="#FFFFFF" vlink="#FFFFFF" alink="#FFFFFF">
+<div align="center">
+
+<table width="590" border="0" cellpadding="0" cellspacing="0" bgcolor="#003399">
+    <tr> 
+      <td width="125" rowspan="4" valign="top"> 
+        <p><img src="logoho.gif" width="113" height="64"><img src="noir.gif" width="8" height="27" align="top"></p>
+      </td>
+      <td height="6" width="465" valign="top" > 
+        <div align="right"><img src="pub.gif" width="460" height="55"> </div>
+  
+      </td>
+    </tr>
+</table>
+
+<table width="590" border="0" cellpadding="10" cellspacing="0" bgcolor="#003399">
+  <tr>
+    <td width="414" valign="top"><br>
+    Aide sur PostIt<hr>
+    <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Post it est un MemoServ. Il
+    vous permet d'envoyer une note a une personne enregistré dans NickServ même si elle
+    n'est pas presente sur IRC, elle la vera en se conectant.</font></p>
+    <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><strong>Commandes</strong></font></p><p>
+<!-- Script affichant des liens hypertextes ou une liste suivant le navigateur --> <script language="JavaScript"><!--
+			ssm = new Array();
+			adre = new Array();
+	
+			ssm[0] = "List";
+			ssm[1] = "Read";
+			ssm[2] = "Send";
+			ssm[3] = "Del";
+			ssm[4] = "Purge";
+			ssm[5] = "Forward";
+			ssm[6] = "Recall";
+			ssm[7] = "Ignoreall";
+			for(var a = 0; a < ssm.length; a++)
+				adre[a] = "#"+ssm[a];
+
+			browserName = navigator.appName;
+			browserVer = parseInt(navigator.appVersion);
+			if (((browserName == "Netscape")&&(browserVer >= 3)) || ((browserName == "Microsoft Internet Explorer")&&(browserVer >= 4)))
+				version = "n3+"
+			else version = "x"
+			if (version == "x"){
+				for(var a=0;a<ssm.length;a++)
+					document.write("<p align=\"center\"><A HREF=\""+adre[a]+"\">"+ssm[a]+"</A></p>\n\r");
+			}else{
+				document.write("");
+				document.write("<select name=\"detail\" size=\"1\" tabindex=\"1\">\n\r");
+				for(var i = 0; i < ssm.length; i++) 
+				document.write("<option>"+ssm[i] +"</option>\n\r");
+				document.write("</select>\n\r");
+				document.write("");
+			}
+
+function gotou(){ 
+	document.location.href=adre[document.menu.detail.selectedIndex]; 
+	return true; 
+}
+ 
+// -->;</script>
+    </p>
+    <p><a name="List"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><strong>List</strong></font></a></p>
+    <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Cette commande liste tous
+    vos messages en attentes</font></p>
+    <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Syntaxe : <strong>/msg
+    PostIt List</strong></font></p>
+    <p><a name="Send"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><strong>Send</strong></font></a></p>
+    <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Cette commande envoye une
+    note a un utilisateur</font></p>
+    <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Syntaxe : <strong>/msg
+    PostIt Send &lt;pseudo&gt; &lt;message&gt;</strong></font></p>
+    <p><a name="Read"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><strong>Read</strong></font></a></p>
+    <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Cette commande permet de
+    lire le message spécifié</font></p>
+    <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Syntaxe : <strong>/msg
+    PostIt Read &lt;numero&gt;</strong></font></p>
+    <p><a name="Del"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><strong>Del</strong></font></a></p>
+    <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Cette commande detruit le
+    message spécifié</font></p>
+    <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Syntaxe : <strong>/msg
+    PostIt del &lt;numero&gt;</strong></font></p>
+    <p><a name="Purge"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><strong>Purge</strong></font></a></p>
+    <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Cette commande detruit tous
+    vos messages</font></p>
+    <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Syntaxe : <strong>/msg
+    PostIt Purge</strong></font></p>
+    <p><a name="Recall"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><strong>Recall</strong></font></a></p>
+    <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Cette commande detruit le
+    dernier message que vous avez envoyé a un utilisateur</font></p>
+    <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Syntaxe : <strong>/msg
+    PostIt Recall &lt;pseudo&gt;</strong></font></p>
+    <p><a name="Forward"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><strong>Forward</strong></font></a></p>
+    <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Cette commande fait suivre
+    toutes vos notes a pseudonyme spécifié. Il vous faut préciser le mot de passe du pseudo
+    spécifié</font></p>
+    <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Syntaxe : <strong>/msg
+    PostIt Forward &lt;pseudo&gt; &lt;mot de passe&gt;</strong></font></p>
+    <p><a name="IgnoreAll"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><strong>IgnoreAll</strong></font></a></p>
+    <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Cette commande demande a
+    Postit d'ignorer tous les memos arrivant.</font></p>
+    <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Syntaxe : <strong>/msg
+    PostIt IgnoreAll {ON|OFF}</strong></font></p>
+    <p><small><font face="Verdana">&nbsp;</font></small></p>
+    <p><small><font face="Verdana">Voila vous connaisez toutes les fonction de gestion des
+    messages si malgres ceci vous avez des problemes ecrivez a irc@????
+    un des administrateurs vous repondra.</font></small></p>
+    <p align="center"><small><font face="Verdana">Retour au sommaire</font></small></td>
+    <td height="6" width="136" valign="top"><p align="LEFT">&nbsp; </td>
+  </tr>
+</table>
+
+<table width="590" border="0" cellpadding="0" cellspacing="0" bgcolor="#003399">
+  <tr>
+    <td width="59" valign="top"></td>
+    <td height="6" width="484" valign="top"></td>
+    <td height="6" width="47" valign="top"><img src="basd.gif" width="54" height="22"></td>
+  </tr>
+</table>
+</div>
+</body>
+</html>

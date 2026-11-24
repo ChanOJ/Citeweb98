@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head><script src="/frame-restore.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Aide - CITEWEB</title>
+</head>
+<body bgcolor="#FFFFFF" link="#000000" vlink="#000000" alink="#000000">
+<table border="0" width="440">
+    <tr>
+        <td>
+  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+      <td><font size="3" face="Verdana"><strong> Aide </strong></font></td>
+      <td align="right">
+        <div align="right">
+          <table border="0" cellspacing="0" bgcolor="#000000">
+            <tr>
+              <td>
+                <table border="0" bgcolor="#C8AFF5">
+                  <tr>
+                    <td><font size="1" face="Verdana"><strong><a href="/citeweb/a.htm">&lt; page principale</a> / <a href="/aide/index.htm">aide</a></strong></font></td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </td>
+    </tr>
+  </table>
+
+      
+<p><font face="Verdana"><strong><i><font>CONFIGURER SA PAGE D'ERREUR 404</font></i></strong></font></p>
+<p><font size="2" face="Verdana">Vous pouvez personnaliser votre page d'erreur 
+  404, celle qui s'affiche lorsqu'un lien interne de votre site ne fonctionne 
+  pas (une page manquante par exemple).<br>
+  </font><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Vous pouvez 
+  d&eacute;cider des couleurs de fond, de liens et de liens visit&eacute;s de 
+  la frame du bas de l'erreur 404 (celle qui contient le bandeau de publicit&eacute;).</font></p>
+<p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Pour cela, cr&eacute;ez 
+  tout d'abord un r&eacute;pertoire ctw dans la racine de votre site. Dans ce 
+  r&eacute;pertoire, rangez votre page 404.htm, qui est la page qui sera affich&eacute;e, 
+  vous pouvez par exemple y &eacute;crire: ERREUR 404 !. Fichier manquant.</font> 
+<p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Toujours dans le 
+  r&eacute;pertoire ctw de votre site, cr&eacute;ez un ficher 404.txt (configuration 
+  des couleurs de la frame contenant le bandeau sur votre page d'erreur) avec 
+  les lignes suivantes (bgcolor= couleur de fond, text= couleur du texte, link= 
+  couleur des liens, vlink= couleur des liens visit&eacute;s) :</font> 
+<p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">BGCOLOR=000000<br>
+  TEXT=FFFFFF<br>
+  LINK=FF9900<br>
+  VLINK=FF9900<br>
+  PREVENIR_LIEN_INTERNE=1<br>
+  PREVENIR_LIEN_EXTERNE=1</font> 
+<p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Les champs &quot;pr&eacute;venir 
+  des liens internes&quot; et &quot;pr&eacute;venir des liens externes&quot; configurent 
+  si vous desirez ou non recevoir un mail a chaque erreur 404, pour les erreurs 
+  internes (si vous vous &ecirc;tes tromp&eacute; dans un lien sur votre site) 
+  ou pour les erreurs externes (si une page exterieure &agrave; votre site contient 
+  un mauvais lien vers votre site). Dans ce mail vous recevrez l'adresse de la 
+  page qui pose probl&egrave;me ainsi que l'intitul&eacute; du lien erron&eacute;.</font> 
+<p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Si vous n'utilisez 
+  pas le fichier de configuration 404.txt, la configuration de CITEWEB sera utilis&eacute;e 
+  par defaut (Pas de mail envoy&eacute;, couleurs de CITEWEB).</font> 
+<p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Je r&eacute;sume:<br>
+  Un repertoire /ctw sur votre site<br>
+  Un fichier 404.htm dedans pour votre page d'erreur perso<br>
+  Un &eacute;ventuel fichier 404.txt pour configurer les couleurs de la frame 
+  du bas et la r&eacute;ception du mail ou non.</font> 
+<p><font face="Verdana" size="2">Contemplez le r&eacute;sultat !</font></p>
+<font><br>
+</font>
+<p><font face="Verdana" size="2"><b>> Quelques infos supplémentaires:</b></font></p>
+<p><font face="Verdana" size="2">- Il se peut que certains email que vous receviez 
+  indiquent un lien vers une page dont l'url (l'adresse) contient des double slash 
+  "//". Ce probleme sera sans doute résolu avec la v2 de CITEWEB, en attendant 
+  ne vous en faites pas trop ;-)<br>
+  <br>
+  - Certains navigateurs "exotiques" (AmigaVoyager sur AMIGA par exemple) ne sont 
+  pas compatible entièrement avec le protocole HTTP. Ils n'arrivent donc pas a 
+  afficher les images se trouvant sur vos sites (CITEWEB utilisant le principe 
+  de la redirection). Cela provoque pas mal d'erreurs 404. Tant pis pour eux ;-)<br>
+  <br>
+  - Certains navigateurs (MSIE surtout, mais Netscape Navigator aussi parfois) 
+  renvoient mal le "referer" (adresse de la page que vous avez vu et qui contient 
+  le lien vers la page courante). Il peut donc arriver que vous receviez un email 
+  indiquant qu'une page contienne un lien erroné vers votre site, alors que la 
+  page en question n'en contient aucun.<br>
+  <br>
+  - Dans tous les cas, sachez qu'il n'y a pas plus d'erreurs 404 qu'avant ! Les 
+  erreurs 404 sont très courantes sur le web, d'une part a cause des moteurs de 
+  recherche qui indiquent des pages n'existant plus, d'autre part a cause des 
+  problèmes de compatibilité des navigateurs. C'est pour cela que sur CITEWEB 
+  nous vous proposons de faire ce que vous voulez avec VOTRE erreur 404, de maniere 
+  a ce que vous puissiez au mieux diriger les visiteurs vers le contenu de votre 
+  site.</font><font>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
+ </font></p>
+<blockquote>&nbsp;</blockquote>
+<p>&nbsp;</p>
+<p>&nbsp;</p>

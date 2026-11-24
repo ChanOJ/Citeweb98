@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head><script src="/frame-restore.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Aide - CITEWEB</title>
+</head>
+<body bgcolor="#FFFFFF" link="#000000" vlink="#000000" alink="#000000">
+<table border="0" width="440">
+    <tr>
+        <td>
+  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+      <td><font size="3" face="Verdana"><strong> Aide </strong></font></td>
+      <td align="right">
+        <div align="right">
+          <table border="0" cellspacing="0" bgcolor="#000000">
+            <tr>
+              <td>
+                <table border="0" bgcolor="#C8AFF5">
+                  <tr>
+                    <td><font size="1" face="Verdana"><strong><a href="/citeweb/a.htm">&lt; page principale</a> / <a href="/aide/index.htm">aide</a></strong></font></td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </td>
+    </tr>
+  </table>
+
+      
+<p><font face="Verdana"><strong><i><font>LIENALEA</font></i></strong></font></p>
+<p><font size="2" face="Verdana">Lienalea est une nouvelle extension qui vous 
+  permet de changer l'apparence de vos pages de facon aléatoire.. Le principe 
+  ? vous appellez une de ces deux extensions en spécifiant les url possibles et 
+  lea (l'extension) choisit alléatoirement quelle image il va afficher, ou vers 
+  quel lien il va envoyer la personne qui consulte votre page.<br>
+  <br>
+  <b>ATTENTION ! lienlea ne fonctionne qu'a partir des pages hébergées par CITEWEB.NET</b></font></p>
+<p><font size="2" face="Verdana">appel: http://ctw.citeweb.net/cgidll/lienalea.dll?VOS 
+  ARGUMENTS <br>
+  vos arguments: la liste des url dans lesquels lea va choisir alléatoirement 
+  (20 maximum)</font></p>
+<p><font size="2" face="Verdana"><b><font size="3">EXEMPLE D'AFFICHAGE ALLEATOIRE 
+  D'UNE IMAGE</font></b></font></p>
+<p><font size="2" face="Verdana">sur une de vos pages, vous voulez que les utilisateurs 
+  voient 1 image qui sera choisie parmi trois, la source originale de votre page 
+  est:</font></p>
+<blockquote> 
+  <p><font size="2" face="Verdana, Arial, Helvetica, sans-serif">&lt;img src=&quot;image.gif&quot;&gt;</font></p>
+</blockquote>
+<p><font size="2" face="Verdana">et vous voulez que l'image affich&eacute;e a 
+  sa place soit une des trois suivantes: image1.gif, image2.gif ou image3.gif 
+  .. il suffit de modifier l'html de la facon suivante:</font></p>
+<blockquote> 
+  <p><font size="2" face="Verdana, Arial, Helvetica, sans-serif">&lt;img src=&quot;http://ctw.citeweb.net/cgidll/lienalea.dll?image1.gif&amp;image2.gif&amp;image3.gif&quot;&gt;</font></p>
+</blockquote>
+<p><font size="2" face="Verdana">si une image n'est pas stock&eacute;e dans un 
+  de vos r&eacute;pertoires, donc est sur un autre serveur, par exemple image1.gif 
+  est &agrave; aller chercher sur http://www.yahoo.com/logo.gif, proc&eacute;dez 
+  ainsi:</font></p>
+<blockquote> 
+  <p><font size="1" face="Verdana, Arial, Helvetica, sans-serif">&lt;img src=&quot;http://ctw.citeweb.net/cgidll/lienalea.dll?http://www.yahoo.com/logo.gif&amp;image2.gif&amp;image3.gif&quot;&gt;</font></p>
+</blockquote>
+<p><font size="2" face="Verdana">lea choisit au hasard en donnant les memes chances 
+  &agrave; toutes les url, mais si vous d&eacute;sirez donner plus de chances 
+  &agrave; certaines, vous pouvez le faire (lea est tr&egrave;s attentionn&eacute;e). 
+  Par exemple, vous voulez que l'image1 s'affiche 7 fois plus que les autres, 
+  l'image 2 deux fois plus .. il suffit de placer le chiffre de priorit&eacute; 
+  devant l'url suivi d'une virgule, comme dans l'exemple suivant:</font></p>
+<blockquote> 
+  <p><font size="2" face="Verdana, Arial, Helvetica, sans-serif">&lt;img src=&quot;http://ctw.citeweb.net/cgidll/lienalea.dll?7,image1.gif&amp;2,image2.gif&amp;image3.gif&quot;&gt;</font></p>
+</blockquote>
+<p><font size="2" face="Verdana"><b><font size="3">EXEMPLE DE LIEN AU HASARD</font></b></font></p>
+<p><font face="Verdana" size="2">Vous d&eacute;sirez qu'un lien em&egrave;ne vos 
+  visiteurs soit sur cette url, soit sur celle ci, mais quand meme un peu plus 
+  sur celle la ? H&eacute; bien ca marche exactement pareil que pour les images 
+  .. dans l'exemple qui suit on va envoyer les visiteurs soit sur glop.htm soit 
+  sur http://www.yahoo.fr</font></p>
+<blockquote> 
+  <p><font face="Verdana" size="2">l'ancien lien qui pointait toujours sur glop.htm 
+    etait comme ca:<br>
+    </font><font size="2" face="Verdana, Arial, Helvetica, sans-serif">&lt;a href=&quot;glop.htm&quot;&gt;mon 
+    lien&lt;/a&gt;<br>
+    <br>
+    </font><font face="Verdana" size="2">il va devenir comme ca:<br>
+    </font><font size="2" face="Verdana, Arial, Helvetica, sans-serif">&lt;a href=&quot;http://ctw.citeweb.net/cgidll/lienalea.dll?glop.htm&amp;http://www.yahoo.fr&quot;&gt;mon 
+    lien&lt;/a&gt; </font></p>
+  <p><font face="Verdana" size="2">mais comme vous voulez que plus de gens voient 
+    glop.htm tout de m&ecirc;me, on va modifier par:<br>
+    </font><font size="2" face="Verdana, Arial, Helvetica, sans-serif">&lt;a href=&quot;http://ctw.citeweb.net/cgidll/lienalea.dll?2,glop.htm&amp;http://www.yahoo.fr&quot;&gt;mon 
+    lien&lt;/a&gt; </font></p>
+</blockquote>
+<p><font face="Verdana" size="2">et si vous avez des am&eacute;liorations, des 
+  probl&egrave;mes ou des id&eacute;es d'extensions, n'h&eacute;sitez pas &agrave; 
+  nous &eacute;crire !</font></p>
+<p><font>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
+ </font></p>
+<blockquote>&nbsp;</blockquote>
+<p>&nbsp;</p>
+<p>&nbsp;</p>

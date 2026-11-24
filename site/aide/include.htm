@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head><script src="/frame-restore.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Aide - CITEWEB</title>
+</head>
+<body bgcolor="#FFFFFF" link="#000000" vlink="#000000" alink="#000000">
+<table border="0" width="440">
+    <tr>
+        <td>
+  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+      <td><font size="3" face="Verdana"><strong> Aide </strong></font></td>
+      <td align="right">
+        <div align="right">
+          <table border="0" cellspacing="0" bgcolor="#000000">
+            <tr>
+              <td>
+                <table border="0" bgcolor="#C8AFF5">
+                  <tr>
+                    <td><font size="1" face="Verdana"><strong><a href="/citeweb/a.htm">&lt; page principale</a> / <a href="/aide/index.htm">aide</a></strong></font></td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </td>
+    </tr>
+  </table>
+
+      
+<p><font face="Verdana"><strong><i>FAIRE DES INCLUDES</i></strong></font></p>
+<p><b><font face="Verdana, Arial, Helvetica, sans-serif" size="2">&gt; Utilisation 
+  des includes </font></b></p>
+<p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Sur toutes les 
+  pages web de votre site vous proposez le m&ecirc;me texte (une barre de menu 
+  par exemple) et vous d&eacute;sirez changer ce texte sans changer toutes les 
+  pages de votre site ?</font></p>
+<p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Un include sert 
+  &agrave; afficher le contenu d'un fichier texte, ou d'une page HTML dans une 
+  autre page web. Ceci pour pouvoir ainsi, par exemple changer une ligne de texte 
+  dans votre page d'index sans avoir &agrave; changer toute la page.</font><b><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><br>
+  </font></b></p>
+<p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Dans notre exemple, 
+  je vais ins&eacute;rer un commentaire qui se trouve dans un fichier texte &agrave; 
+  l'int&eacute;rieur de ma page.<br>
+  Pour appeler les includes, le tag &agrave; ins&eacute;rer est &#36;&#36;INC:inc/include.txt&#36;&#36;<br>
+  inc: r&eacute;pertoire dans votre site o&ugrave; se trouve votre fichier include 
+  (ne pas mettre de / devant le r&eacute;pertoire)<br>
+  include.txt: le nom de votre include</font></p>
+<p><b><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Voici le contenu 
+  de mon fichier include.txt:<br>
+  </font></b><font face="Verdana, Arial, Helvetica, sans-serif" size="2">&lt;font 
+  face=&quot;Verdana, Arial, Helvetica, sans-serif&quot; size=&quot;1&quot;&gt;Aujourd'hui 
+  il pleut &lt;/font&gt;</font></p>
+<p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Voici la source 
+  de la page o&ugrave; je veux ins&eacute;rer mon include:</b></font></p>
+<p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">&lt;html&gt;<br>
+  &lt;head&gt;<br>
+  &lt;title&gt;Le temps en direct !&lt;/title&gt;<br>
+  &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=iso-8859-1&quot;&gt;<br>
+  &lt;/head&gt;<br>
+  &lt;body bgcolor=&quot;#FFFFFF&quot;&gt;<br>
+  &lt;p&gt;&lt;font face=&quot;Verdana, Arial, Helvetica, sans-serif&quot; size=&quot;2&quot;&gt;&lt;b&gt;Suivre 
+  le temps <br>
+  en direct !&lt;/b&gt;&lt;/font&gt;&lt;/p&gt;<br>
+  &lt;p&gt;&lt;font face=&quot;Verdana, Arial, Helvetica, sans-serif&quot; size=&quot;2&quot;&gt;Quel 
+  temps fait <br>
+  il aujourd'hui ?&lt;/font&gt;&lt;/p&gt;<br>
+  &lt;p&gt;<font face="Courier New, Courier, mono">&#36;&#36;INC:include.txt&#36;&#36;</font>&lt;/p&gt; 
+  <br>
+  &lt;/body&gt;<br>
+  &lt;/html&gt;</font></p>
+<p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Voici la source 
+  de la page qui sera envoy&eacute;e &agrave; vos visiteurs</b></font></p>
+<p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">&lt;html&gt;<br>
+  &lt;head&gt;<br>
+  &lt;title&gt;Le temps en direct !&lt;/title&gt;<br>
+  &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=iso-8859-1&quot;&gt;<br>
+  &lt;/head&gt;<br>
+  &lt;body bgcolor=&quot;#FFFFFF&quot;&gt;<br>
+  &lt;p&gt;&lt;font face=&quot;Verdana, Arial, Helvetica, sans-serif&quot; size=&quot;2&quot;&gt;&lt;b&gt;Suivre 
+  le temps <br>
+  en direct !&lt;/b&gt;&lt;/font&gt;&lt;/p&gt;<br>
+  &lt;p&gt;&lt;font face=&quot;Verdana, Arial, Helvetica, sans-serif&quot; size=&quot;2&quot;&gt;Quel 
+  temps fait <br>
+  il aujourd'hui ?&lt;/font&gt;&lt;/p&gt;<br>
+  &lt;p&gt;&lt;font face=&quot;Verdana, Arial, Helvetica, sans-serif&quot; size=&quot;1&quot;&gt;Aujourd'hui 
+  il pleut &lt;/font&gt;&lt;/p&gt; <br>
+  &lt;/body&gt;<br>
+  &lt;/html&gt;</font></p>
+<p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Vous pouvez remplacer 
+  le fichier texte par un fichier contenant un lien vers une image par exemple...</font><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font></p>
+
+
+        </td>
+    </tr>
+</table>
+</body>
+</html>
+ 
+<p>&nbsp;</p>
+<p>&nbsp;</p>

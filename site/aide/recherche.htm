@@ -1,0 +1,213 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head><script src="/frame-restore.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Aide - CITEWEB</title>
+</head>
+<body bgcolor="#FFFFFF" link="#000000" vlink="#000000" alink="#000000">
+<table border="0" width="440">
+    <tr>
+        <td>
+  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+      <td><font size="3" face="Verdana"><strong> Aide </strong></font></td>
+      <td align="right">
+        <div align="right">
+          <table border="0" cellspacing="0" bgcolor="#000000">
+            <tr>
+              <td>
+                <table border="0" bgcolor="#C8AFF5">
+                  <tr>
+                    <td><font size="1" face="Verdana"><strong><a href="/citeweb/a.htm">&lt; page principale</a> / <a href="/aide/index.htm">aide</a></strong></font></td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </td>
+    </tr>
+  </table>
+
+      
+<p><font face="Verdana"><strong><i>INTERROGER LE MOTEUR DE RECHERCHE</i></strong></font></p>
+<p><font size="2" face="Verdana, Arial, Helvetica, sans-serif">Les possibilit&eacute;s 
+  de recherche sur CITEWEB sont extr&ecirc;mement &eacute;volu&eacute;es. Voici 
+  une liste non exhaustive des op&eacute;rateurs accept&eacute;s dans la zone 
+  de recherche. (dans les exemple qui suivent, cliquez sur la zone de saisie puis 
+  appuyez sur entr&eacute;e pour tester l'exemple)</font> </p>
+<p><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong>&gt; recherche 
+  de base</strong></font></p>
+
+  <p><font size="2" face="Verdana, Arial, Helvetica, sans-serif">Une chaine saisie 
+    telle quelle sera recherch&eacute;e de fa&ccedil;on exacte: <br>
+    
+    cherchera tr&egrave;s exactement la phrase.</font> </p>
+
+<p><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong>&gt; le 
+  jocker</strong></font></p>
+
+  <p><font size="2" face="Verdana, Arial, Helvetica, sans-serif">Tr&egrave;s utile, 
+    par exemple, pour chercher un mot indiff&eacute;remment au singulier ou au 
+    pluriel:<br>
+    
+    va trouver casser, castagnettes, casse-cou, ...</font></p>
+
+<p><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong>&gt; op&eacute;rateurs 
+  bool&eacute;ens</strong></font></p>
+<table border="1" cellpadding="4" cellspacing="1" width="100%">
+  <tr bgcolor="#8080FF"> 
+    <th align="LEFT" valign="BOTTOM" width=33%><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Pour 
+      rechercher </font> </th>
+    <th align="LEFT" valign="BOTTOM" width=33%><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Exemple</font></th>
+    <th align="LEFT" valign="BOTTOM" width=33%><font size="2" face="Verdana, Arial, Helvetica, sans-serif">Resultat</font></th>
+  </tr>
+  <tr> 
+    <td valign="top">Les deux termes dans la m&ecirc;me page</td>
+    <td valign="top"><font size="3" face="Courier"><code>access and basic</code></font><br>
+      <strong>&#151;</strong>ou<strong>&#151;</strong><br>
+      <font size="3" face="Courier"><code>access &amp; basic</code></font></td>
+    <td valign="top">Les pages contenant les deux mots <em>access</em> et <em>basic</em></td>
+  </tr>
+  <tr> 
+    <td valign="top">Un terme ou l'autre dans la m&ecirc;me page</td>
+    <td valign="top"><font size="3" face="Courier"><code>cgi or isapi</code></font><br>
+      <strong>&#151;</strong>ou<strong>&#151;</strong><br>
+      <font size="3" face="Courier"><code>cgi | isapi</code></font></td>
+    <td valign="top">Les pages contenant le mot <em>cgi</em> et celles contenant 
+      le mot <em>isapi</em></td>
+  </tr>
+  <tr> 
+    <td valign="top">Le premier terme mais pas le second</td>
+    <td valign="top"><font size="3" face="Courier"><code>access and not basic</code></font><br>
+      <strong>&#151;</strong>ou<strong>&#151;</strong><br>
+      <font size="3" face="Courier"><code>access &amp; ! basic</code></font></td>
+    <td valign="top">Les pages contenant le mot <em>access</em> mais pas le mot 
+      <em>basic</em></td>
+  </tr>
+  <tr> 
+    <td valign="top">Les pages n'ayant pas une propri&eacute;t&eacute; donn&eacute;e</td>
+    <td valign="top"><font size="3" face="Courier"><code>not @size = 100</code></font><br>
+      <strong>&#151;</strong>ou<strong>&#151;</strong><br>
+      <font size="3" face="Courier"><code>! @size = 100</code></font></td>
+    <td valign="top">Les pages qui ne font pas 100 octets</td>
+  </tr>
+  <tr> 
+    <td valign="top">Les deux termes dans la m&ecirc;me page, &agrave; condition 
+      qu'ils soient proches l'un de l'autre</td>
+    <td valign="top"><font size="3" face="Courier"><code>excel near project</code></font><br>
+      <strong>&#151;</strong>ou<strong>&#151;</strong><br>
+      <font size="3" face="Courier"><code>excel ~ project</code></font></td>
+    <td valign="top">Les pages contenant le mot <em>excel</em> pr&egrave;s du 
+      mot <em>project</em> </td>
+  </tr>
+</table>
+<p><font size="2" face="Verdana"><strong>&gt; recherche d'une phrase contenant 
+  des mots r&eacute;serv&eacute;s</strong></font></p>
+
+  <p><font size="2" face="Verdana">Il suffit d'entourer la chaine &agrave; rechercher 
+    avec des guillemets:</font><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><br>
+    
+    </font></p>
+
+<p><font size="2" face="Verdana"><strong>&gt; les propri&eacute;t&eacute;s</strong></font></p>
+Les propri&eacute;t&eacute;s doivent &ecirc;tres pr&eacute;c&eacute;d&eacute;es 
+d'un arrobas (@) si elles ont utilis&eacute;es avec un op&eacute;rateur, sinon 
+elles doivent &ecirc;tre pr&eacute;c&eacute;d&eacute;es d'un di&egrave;se (#)<br>
+<table border="1" cellpadding="4" cellspacing="1" width="100%">
+  <tr bgcolor="#8080FF"> 
+    <th align="LEFT" valign="BOTTOM" width="40%"><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Propri&eacute;t&eacute;s</font></th>
+    <th align="LEFT" valign="BOTTOM" width="60%"><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Descriptions</font></th>
+  </tr>
+  <tr> 
+    <td valign="top">Filename</td>
+    <td valign="top">Nom du fichier</td>
+  </tr>
+  <tr> 
+    <td valign="top">Size</td>
+    <td valign="top">Taille du fichier</td>
+  </tr>
+  <tr> 
+    <td valign="top">Write</td>
+    <td valign="top">Date de modification du fichier</td>
+  </tr>
+  <tr> 
+    <td valign="top">DocTitle</td>
+    <td valign="top">Titre du document</td>
+  </tr>
+  <tr> 
+    <td valign="top">DocSubject</td>
+    <td valign="top">Sujet du document</td>
+  </tr>
+  <tr> 
+    <td valign="top">DocAuthor</td>
+    <td valign="top">Auteur du document</td>
+  </tr>
+  <tr> 
+    <td valign="top">DocKeywords</td>
+    <td valign="top">Mots clefs indiqu&eacute;s dans le document</td>
+  </tr>
+</table>
+<br>
+Exemples:<br>
+<table border="1" cellpadding="4" cellspacing="1" width="100%">
+  <tr bgcolor="#8080FF"> 
+    <th align="LEFT" valign="BOTTOM" width=33%><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Pour 
+      chercher</font></th>
+    <th align="LEFT" valign="BOTTOM" width=33%><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Exemple</font></th>
+    <th align="LEFT" valign="BOTTOM" width=33%><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Resultat</font></th>
+  </tr>
+  <tr> 
+    <td valign="top">Une propri&eacute;t&eacute; mise en relation avec une valeur</td>
+    <td valign="top"><font size="3" face="Courier"><code>@size &lt; 100<br>
+      @size &lt;= 100 <br>
+      @size = 100 <br>
+      @size != 100 <br>
+      @size &gt;= 100 <br>
+      @size &gt; 100 </code></font></td>
+    <td valign="top">Devinez ! ;-)</td>
+  </tr>
+  <tr> 
+    <td valign="top">Une valeur exacte</td>
+    <td valign="top"><font size="3" face="Courier"><code>@DocAuthor = Bill Barnes 
+      </code></font></td>
+    <td valign="top">Les fichiers dont l'auteur est <em>Bill Barnes</em></td>
+  </tr>
+  <tr> 
+    <td valign="top">Une valeur &agrave; prefixe</td>
+    <td valign="top"><font size="3" face="Courier"><code>#DocAuthor George* </code></font></td>
+    <td valign="top">Les fichiers dont le nom de l'auteur commence par <em>George</em> 
+    </td>
+  </tr>
+  <tr> 
+    <td valign="top">Certains types de fichiers</td>
+    <td valign="top"><font size="3" face="Courier"><code>#filename *.|(exe|,dll|,sys|) 
+      </code></font></td>
+    <td valign="top">Les fichiers portant les extensions .exe, .dll, ou .sys</td>
+  </tr>
+  <tr> 
+    <td valign="top">Les fichiers modifi&eacute;s apr&egrave;s une date donn&eacute;e</td>
+    <td valign="top"><font size="3" face="Courier"><code>@write &gt; 96/2/14 10:00:00</code></font></td>
+    <td valign="top">Bon, ca va, c'est compr&eacute;hensible quand m&ecirc;me 
+      !</td>
+  </tr>
+  <tr> 
+    <td valign="top">Les fichiers modifi&eacute;s apr&egrave;s une date relative</td>
+    <td valign="top"><font size="3" face="Courier"><code>@write &gt; -1d2h</code></font></td>
+    <td valign="top">Les fichiers modifies il y a moins de 26 heures</td>
+  </tr>
+</table>
+
+  <p><font size="2" face="Verdana">Zone de tests =)</font><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+    
+    </font></p>
+
+
+        </td>
+    </tr>
+</table>
+</body>
+</html>
+ 
+<p>&nbsp;</p>
+<p>&nbsp;</p>

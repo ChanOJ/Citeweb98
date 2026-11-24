@@ -1,0 +1,319 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head><script src="/frame-restore.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Aide - CITEWEB</title>
+</head>
+<body bgcolor="#FFFFFF" link="#000000" vlink="#000000" alink="#000000">
+<table border="0" width="440">
+    <tr>
+        <td>
+  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+      <td><font size="3" face="Verdana"><strong> Aide </strong></font></td>
+      <td align="right">
+        <div align="right">
+          <table border="0" cellspacing="0" bgcolor="#000000">
+            <tr>
+              <td>
+                <table border="0" bgcolor="#C8AFF5">
+                  <tr>
+                    <td><font size="1" face="Verdana"><strong><a href="/citeweb/a.htm">&lt; page principale</a> / <a href="/aide/index.htm">aide</a></strong></font></td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </td>
+    </tr>
+  </table>
+
+      
+<p><font face="Verdana"><strong><i>ENVOYER DES EMAILS AVEC UN FORMULAIRE</i></strong></font></p>
+<p><font size="2" face="Verdana">Cette extension serveur vous permet de vous faire 
+  envoyer sur votre email CITEWEB (ou tout autre(s) email(s) de votre choix) tout 
+  formulaire mis sur votre site web.</font></p>
+<p><font size="2" face="Verdana"><strong>&gt; appeler ce CGI:</strong></font></p>
+<p><font size="2" face="Verdana">tout simplement par le tag form de l'html, comme 
+  l'exemple ci dessous. ATTENTION ! Ce cgi ne fonctionne que si il est appelé 
+  à partir d'une page hébergée par CITEWEB.</font></p>
+<p><font size="2" face="Courier">&lt;form action=&quot;http://v19.citeweb.net/cgi/formmail.cgi&quot;<br>
+  method=&quot;POST&quot;&gt;<br>
+  &lt;/form&gt;</font></p>
+<p><font size="2" face="Verdana">ou si vous utilisez frontpage, allez dans propriétés 
+  du formulaire, sélectionnez CGI script puis configuration et dans action mettez 
+  <br>
+  <i>http://v19.citeweb.net/cgi/formmail.cgi</i></font></p>
+<p><font size="2" face="Verdana"><strong>&gt; les champs de configuration:</strong></font></p>
+<p><font size="2" face="Verdana">Ce cgi a été fait pour &ecirc;tre simple, mais 
+  puissant.</font></p>
+<p><font size="2" face="Verdana">Lorsque le CGI est exécuté, il rajoute au formulaire 
+  l'adresse ip de la personne qui envoie le formulaire, son domaine, le navigateur 
+  et le système d'exploitation qu'il utilise. Cette fonction vous permet de savoir 
+  si une m&ecirc;me personne a envoyé plusieurs formulaires à la suite.</font></p>
+<p><font size="2" face="Courier">adresse ip du client : 194.206.68.216<br>
+  nom du client : dial16.netinfo.fr<br>
+  user agent : Mozilla/4.0 (compatible; MSIE 4.0; Windows 95)</font></p>
+<p><font size="2" face="Verdana">Entre les balises &lt;form ...&gt; et &lt;/form&gt; 
+  vous pouvez inclure des champs cachés pour passer des parametres au cgi. Ces 
+  champs n'apparaitront pas dans l'email que vous recevrez :</font></p>
+<table border="0" width="100%">
+  <tr> 
+    <td valign="top" width=""><font size="2" face="Verdana">FORM_SUJET</font></td>
+    <td valign="top" width="">&nbsp;</td>
+    <td valign="top" width=""><font
+                        size="2" face="Verdana">le sujet du mail envoy&eacute; 
+      :</font><font size="2"
+                        face="Courier"><br>
+      &lt;input type=&quot;hidden&quot; name=&quot;FORM_SUJET&quot; value=&quot;mail 
+      d'essai du formmail&quot;&gt;</font></td>
+  </tr>
+  <tr> 
+    <td valign="top">&nbsp;</td>
+    <td valign="top">&nbsp;</td>
+    <td valign="top">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td valign="top"><font size="2"
+                        face="Verdana">FORM_OK</font></td>
+    <td valign="top">&nbsp;</td>
+    <td valign="top"><font size="2"
+                        face="Verdana">le nom de la page html à afficher une fois 
+      le formulaire envoyé, avec une référence absolue :<br>
+      </font><font size="2" face="Courier">&lt;input type=&quot;hidden&quot; name=&quot;FORM_OK&quot; 
+      value=&quot;http://www.citeweb.net/login/page.htm&quot;&gt;</font></td>
+  </tr>
+  <tr> 
+    <td valign="top">&nbsp;</td>
+    <td valign="top">&nbsp;</td>
+    <td valign="top">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td valign="top"><font size="2"
+                        face="Verdana">FORM_DEST</font></td>
+    <td valign="top">&nbsp;</td>
+    <td valign="top"><font size="2"
+                        face="Verdana">email d'un destinataire (ou de plusieurs, 
+      s&eacute;par&eacute;s par des virgules) du formulaire. seuls les 5 premiers 
+      emails seront pris en compte :<br>
+      </font><font size="2" face="Courier">&lt;input type=&quot;hidden&quot; name=&quot;FORM_DEST&quot; 
+      value=&quot;login@????,webmaster2@????&quot;&gt;</font></td>
+  </tr>
+  <tr> 
+    <td valign="top">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td valign="top"><font size="2"
+                        face="Verdana">FORM_OBLIG</font></td>
+    <td>&nbsp;</td>
+    <td><font size="2" face="Verdana">permet de sp&eacute;cifier les noms des 
+      champs que l'utilisateur ne doit pas laisser vides :<br>
+      </font><font size="2" face="Courier">&lt;input type=&quot;hidden&quot; name=&quot;FORM_OBLIG&quot; 
+      value=&quot;nom,prenom,age&quot;&gt;</font></td>
+  </tr>
+  <tr> 
+    <td valign="top">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td valign="top"><font size="2"
+                        face="Verdana">FORM_NOMBRE</font></td>
+    <td>&nbsp;</td>
+    <td><font size="2" face="Verdana">permet de sp&eacute;cifier les noms des 
+      champs qui ne peuvent contenir que des nombres (et optionnellement de sp&eacute;cifier 
+      dans quel intervalle doivent se situer chacun de ces nombres) :<br>
+      </font><font size="2" face="Courier">&lt;input type=&quot;hidden&quot; name=&quot;FORM_NOMBRE&quot; 
+      value=&quot;age(6:100),telephone,annee(1910:2000)&quot;&gt;</font></td>
+  </tr>
+  <tr> 
+    <td valign="top">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td valign="top"><font size="2"
+                        face="Verdana">FORM_ERREUR</font></td>
+    <td>&nbsp;</td>
+    <td><font size="2" face="Verdana">le nom de la page html (r&eacute;f&eacute;rence 
+      absolue) &agrave; afficher si le formulaire rempli par l'utilisateur ne 
+      satisfait pas aux conditions que vous avez sp&eacute;cifi&eacute; :<br>
+      </font><font size="2" face="Courier">&lt;input type=&quot;hidden&quot; name=&quot;FORM_ERREUR&quot; 
+      value=&quot;http://www.citeweb.net/erreur.htm&quot;&gt;</font></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<p><font size="2" face="Verdana">Entre les balises &lt;form ...&gt; et &lt;/form&gt; 
+  vous pouvez inclure des champs texte (tous optionnels) pour am&eacute;liorer 
+  l'email que vous recevrez. Ces champs apparaitront dans l'email :</font></p>
+<table border="0" width="100%">
+  <tr> 
+    <td valign="top" width=""><font size="2" face="Verdana">FORM_NOM</font></td>
+    <td valign="top" width="">&nbsp;</td>
+    <td valign="top" width=""><font
+                        size="2" face="Verdana">le nom (de famille ou complet) 
+      de l'utilisateur :</font><font size="2"
+                        face="Courier"><br>
+      &lt;input type=&quot;texte&quot; name=&quot;FORM_NOM&quot; value=&quot;entrez 
+      votre nom ici&quot;&gt;</font></td>
+  </tr>
+  <tr> 
+    <td valign="top">&nbsp;</td>
+    <td valign="top">&nbsp;</td>
+    <td valign="top">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td valign="top" width=""><font size="2" face="Verdana">FORM_PRENOM</font></td>
+    <td valign="top" width="">&nbsp;</td>
+    <td valign="top" width=""><font
+                        size="2" face="Verdana">le pr&eacute;nom de l'utilisateur 
+      :</font><font size="2"
+                        face="Courier"><br>
+      &lt;input type=&quot;texte&quot; name=&quot;FORM_PRENOM&quot; value=&quot;entrez 
+      votre pr&eacute;nom ici&quot;&gt;</font></td>
+  </tr>
+  <tr> 
+    <td valign="top">&nbsp;</td>
+    <td valign="top">&nbsp;</td>
+    <td valign="top">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td valign="top" width=""><font size="2" face="Verdana">FORM_EMAIL</font></td>
+    <td valign="top" width="">&nbsp;</td>
+    <td valign="top" width=""><font
+                        size="2" face="Verdana">l'email de l'utilisateur (cet 
+      email apparaitra dans le champ &quot;from:&quot; de l'email que vous recevrez, 
+      ce qui fait que vous pourrez directement r&eacute;pondre &agrave; l'utilisateur, 
+      &agrave; condition qu'il ai bien entr&eacute; son email bien s&ucirc;r) 
+      :</font><font size="2"
+                        face="Courier"><br>
+      &lt;input type=&quot;texte&quot; name=&quot;FORM_EMAIL&quot; value=&quot;entrez_votre@ 
+      email.ici&quot;&gt;</font></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<p><font size="2" face="Verdana"><strong>&gt; un exemple:</strong></font></p>
+<font face="Verdana" size="2">
+
+
+
+
+
+
+
+
+Prénom :<br>
+  
+  <br>
+Nom :<br>
+  
+  <br>
+Age :<br><br>
+Email :<br><br>
+Téléphone :<br><br>
+Commentaires :<br><textarea name="commentaire"></textarea><br><br>
+
+
+</font>
+<p><font size="2" face="Verdana"><strong>&gt; sa source:</strong></font></p>
+<p><font size="2" face="Courier" color="#CCCCCC">&lt;form method=&quot;POST&quot; 
+  action=&quot;http://v19.citeweb.net/cgi/formmail.cgi&quot;&gt;<br>
+  &lt;input type=&quot;hidden&quot; name=&quot;FORM_SUJET&quot; value=&quot;mail 
+  d'essai du formmail&quot;&gt;<br>
+  &lt;input type=&quot;hidden&quot; name=&quot;FORM_OK&quot; value=&quot;http://www.citeweb.net/login/ok.htm&quot;&gt;<br>
+  &lt;input type=&quot;hidden&quot; name=&quot;FORM_ERREUR&quot; value=&quot;http://www.citeweb.net/login/erreur.htm&quot;&gt;<br>
+  &lt;input type=&quot;hidden&quot; name=&quot;FORM_OBLIG&quot; value=&quot;age,commentaire&quot;&gt;<br>
+  &lt;input type=&quot;hidden&quot; name=&quot;FORM_NOMBRE&quot; value=&quot;age(6:100),telephone&quot;&gt;<br>
+  &lt;input type=&quot;hidden&quot; name=&quot;FORM_DEST&quot; value=&quot;moi@????&quot;&gt;<br>
+  &lt;input type=&quot;hidden&quot; name=&quot;FORM_DEST&quot; value=&quot;moncopain@????&quot;&gt;<br>
+  Pr&eacute;nom :&lt;br&gt;&lt;input type=&quot;text&quot; size=&quot;20&quot; 
+  name=&quot;FORM_PRENOM&quot;&gt;&lt;br&gt;<br>
+  Nom :&lt;br&gt;&lt;input type=&quot;text&quot; size=&quot;20&quot; name=&quot;FORM_NOM&quot;&gt;&lt;br&gt;<br>
+  Age :&lt;br&gt;&lt;input type=&quot;text&quot; size=&quot;20&quot; name=&quot;age&quot;&gt;&lt;br&gt;<br>
+  Email :&lt;br&gt;&lt;input type=&quot;text&quot; size=&quot;20&quot; name=&quot;FORM_EMAIL&quot;&gt;&lt;br&gt;<br>
+  T&eacute;l&eacute;phone :&lt;br&gt;&lt;input type=&quot;text&quot; size=&quot;20&quot; 
+  name=&quot;telephone&quot;&gt;&lt;br&gt;<br>
+  Commentaires :&lt;br&gt;&lt;textarea name=&quot;commentaire&quot;&gt;&lt;/textarea&gt;&lt;br&gt;&lt;br&gt;<br>
+  &lt;input type=&quot;submit&quot; value=&quot;Envoyer&quot;&gt;<br>
+  &lt;/form&gt;</font></p>
+<p><font size="2" face="Verdana"><strong>&gt; explications :</strong></font></p>
+<p><font size="2" face="Courier" color="#CCCCCC">&lt;form method=&quot;POST&quot; 
+  action=&quot;http://v19.citeweb.net/cgi/formmail.cgi&quot;&gt;</font></p>
+<p><font size="2" face="Courier"><i><font face="Verdana">indique l'emplacement 
+  de notre CGI</font></i></font></p>
+<p><font size="2" face="Courier"> <font color="#CCCCCC">&lt;input type=&quot;hidden&quot; 
+  name=&quot;FORM_SUJET&quot; value=&quot;mail d'essai du formmail&quot;&gt;</font></font></p>
+<p><font size="2" face="Courier"><i><font face="Verdana">ce message apparaitra 
+  comme sujet de l'email que vous recevrez.</font></i></font></p>
+<p><font size="2" face="Courier"> <font color="#CCCCCC">&lt;input type=&quot;hidden&quot; 
+  name=&quot;FORM_OK&quot; value=&quot;http://www.citeweb.net/login/ok.htm&quot;&gt;</font><br>
+  </font></p>
+<p><font face="Courier" size="2"><i><font face="Verdana">le visiteur verra cette 
+  page si l'email a &eacute;t&eacute; envoy&eacute;.</font></i></font></p>
+<p><font size="2" face="Courier" color="#CCCCCC">&lt;input type=&quot;hidden&quot; 
+  name=&quot;FORM_ERREUR&quot; value=&quot;http://www.citeweb.net/login/erreur.htm&quot;&gt;</font><font size="2" face="Courier"><br>
+  </font></p>
+<p><font face="Courier" size="2"><i><font face="Verdana">le visiteur verra cette 
+  page s'il a fait une erreur.</font></i></font></p>
+<p><font size="2" face="Courier" color="#CCCCCC">&lt;input type=&quot;hidden&quot; 
+  name=&quot;FORM_OBLIG&quot; value=&quot;age,commentaire&quot;&gt;</font></p>
+<p><font size="2" face="Courier"><i><font face="Verdana">sp&eacute;cifie que les 
+  champs age et commentaire ne doivent pas &ecirc;tres laiss&eacute;s vides.</font></i></font></p>
+<p><font size="2" face="Courier" color="#CCCCCC">&lt;input type=&quot;hidden&quot; 
+  name=&quot;FORM_NOMBRE&quot; value=&quot;age(6:100),telephone&quot;&gt;</font><font size="2" face="Courier"><br>
+  </font></p>
+<p><font face="Courier" size="2"><i><font face="Verdana">sp&eacute;cifie que le 
+  champ age doit contenir soir rien, soit un nombre entre 6 et 100 inclus. sp&eacute;cifie 
+  aussi que le champ telephone doit contenir soit rien, soit un nombre.</font></i></font></p>
+<p> <font size="2" face="Courier" color="#CCCCCC">&lt;input type=&quot;hidden&quot; 
+  name=&quot;FORM_DEST&quot; value=&quot;moi@????&quot;&gt;<br>
+  &lt;input type=&quot;hidden&quot; name=&quot;FORM_DEST&quot; value=&quot;moncopain@????&quot;&gt;</font><font size="2" face="Courier"><br>
+  </font></p>
+<p><font face="Courier" size="2"><i><font face="Verdana">sp&eacute;cifie les destinataires 
+  de l'email (vous et un secon webmaster par exemple). si ces champs ne sont pas 
+  pr&eacute;sent, l'email arrivera sur votre email citeweb.</font></i></font></p>
+<p><font size="2" face="Courier" color="#CCCCCC">&lt;input type=&quot;text&quot; 
+  size=&quot;20&quot; name=&quot;FORM_PRENOM&quot;&gt;</font><font size="2" face="Courier"><br>
+  </font></p>
+<p><font face="Courier" size="2"><i><font face="Verdana">si le champ email (voir 
+  plus bas) est rempli, le prenom apparaitra dans la zone indiquant l'envoyeur 
+  de l'email, en plus d'apparaitre dans le corps du message.</font></i></font></p>
+<p><font size="2" face="Courier" color="#CCCCCC">&lt;input type=&quot;text&quot; 
+  size=&quot;20&quot; name=&quot;FORM_NOM&quot;&gt;</font><font size="2" face="Courier"><br>
+  </font></p>
+<p><font face="Courier" size="2"><i><font face="Verdana">si le champ email (voir 
+  plus bas) est rempli, le nom apparaitra dans la zone indiquant l'envoyeur de 
+  l'email, en plus d'apparaitre dans le corps du message.</font></i></font></p>
+<p><font size="2" face="Courier" color="#CCCCCC">&lt;input type=&quot;text&quot; 
+  size=&quot;20&quot; name=&quot;age&quot;&gt;</font><font size="2" face="Courier"><br>
+  </font></p>
+<p><font face="Courier" size="2"><i><font face="Verdana">apparaitra dans le corps 
+  de l'email.</font></i></font></p>
+<p><font size="2" face="Courier" color="#CCCCCC">&lt;input type=&quot;text&quot; 
+  size=&quot;20&quot; name=&quot;FORM_EMAIL&quot;&gt;</font><font size="2" face="Courier"><br>
+  </font></p>
+<p><font face="Courier" size="2"><i><font face="Verdana">sera plac&eacute; comme 
+  envoyeur de l'email, et apparaitra dans la corps du message.</font></i></font></p>
+<p><font size="2" face="Courier" color="#CCCCCC">&lt;input type=&quot;text&quot; 
+  size=&quot;20&quot; name=&quot;telephone&quot;&gt;<br>
+  &lt;textarea name=&quot;commentaire&quot;&gt;&lt;/textarea&gt;<br>
+  &lt;input type=&quot;submit&quot; value=&quot;Envoyer&quot;&gt;<br>
+  &lt;/form&gt;</font></p>
+<p><font size="2" face="Courier"><i><font face="Verdana">fin du formulaire, standard.</font></i></font></p>
+<p>&nbsp;</p>
+<p><font size="2" face="Verdana"><strong>&gt; des précisions ?<br>
+  </strong>on a développé nous même ce cgi, on est donc en mesure de l'améliorer 
+  selon vos demandes. pour toute demande ou problème, contactez nous sur les 
+  forums</font>.</p>
+<p><font color="#FFFFCC">
+        </td>
+    </tr>
+</table>
+</body>
+</html>
+ </font></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>

@@ -1,0 +1,133 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head><script src="/frame-restore.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Aide - CITEWEB</title>
+</head>
+<body bgcolor="#FFFFFF" link="#000000" vlink="#000000" alink="#000000">
+<table border="0" width="440">
+    <tr>
+        <td>
+  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+      <td><font size="3" face="Verdana"><strong> Aide </strong></font></td>
+      <td align="right">
+        <div align="right">
+          <table border="0" cellspacing="0" bgcolor="#000000">
+            <tr>
+              <td>
+                <table border="0" bgcolor="#C8AFF5">
+                  <tr>
+                    <td><font size="1" face="Verdana"><strong><a href="/citeweb/a.htm">&lt; page principale</a> / <a href="/aide/index.htm">aide</a></strong></font></td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </td>
+    </tr>
+  </table>
+
+      
+<p><font face="Verdana"><strong><i>LES QUESTIONS LES PLUS FREQUEMENT POSEES</i></strong></font></p>
+<p><font face="Verdana" size="2">Ici vous trouverez des r&eacute;ponses aux questions 
+  que les gens nous posent souvent &agrave; tech@???? .. les r&eacute;ponses 
+  seront toujours les m&ecirc;mes.</font></p>
+<p><font size="2" face="Verdana"><strong>&quot;Je voudrais installer mes propres 
+  CGI, ou mes scripts en PERL ou ASP est-ce possible ?&quot;</strong></font></p>
+<p><font face="Verdana" size="2">H&eacute; non, ce n'est pas possible.</font><font size="2"><font
+                face="Verdana"> Un CGI est un programme qui est ex&eacute;cut&eacute; 
+  par le serveur pour produire des pages html, ecrire des fichiers .. cela pose 
+  deux probl&egrave;mes sur les serveurs de CITEWEB.NET:</font></font></p>
+<blockquote> 
+  <p><font size="2"><font
+                face="Verdana"> <b>- performances: </b></font><font size="2"><font
+                face="Verdana">l'ex&eacute;cution de multiples CGI non sp&eacute;cifiquement 
+    cod&eacute;s pour l'architecture des serveur, ou qui comportent des erreur 
+    de programmation (ce qui arrive a tout le monde, on fait non propres CGI ca 
+    fait planter de temps en temps les machines) d&eacute;gradent les performances. 
+    Si on veut que CITEWEB.NET garde sa bonne fiabilit&eacute; actuelle, on ne 
+    peut se permettre de laisser cet acc&egrave;s.</font></font></font></p>
+  <p><font size="2"><font
+                face="Verdana"><b>- s&eacute;curit&eacute;: </b></font><font size="2"><font
+                face="Verdana">un programme en CGI peut acc&eacute;der &agrave; 
+    de nombreuses ressources au niveau des serveurs que nous n'avons pas le moyen 
+    de limiter sous la plateforme logicielle que l'on utilise (Windows NT server)</font></font></font></p>
+</blockquote>
+<p><font size="2"><font size="2"><font
+                face="Verdana"> L'&eacute;quipe de CITEWEB.NET s'efforce de d&eacute;velopper 
+  par contre un ensemble assez important de CGI, d'extensions afin de palier &agrave; 
+  cette interdiction, il n'y a qu'a consulter l'aide pour voir le nombre important 
+  d'extensions qui sont d&eacute;velopp&eacute;es &agrave; ce jour. Si vous avez 
+  besoin d'un CGI, &eacute;crivez 
+  nous, nous verrons si nous pouvons le d&eacute;velopper. Actuellement une 
+  extension &quot;livre d'or est en d&eacute;veloppement&quot;</font></font></font></p>
+<p><font size="2" face="Verdana"><strong>&quot;Avez vous les extensions FRONTPAGE 
+  ?&quot;</strong></font></p>
+<p><font face="Verdana" size="2">On aurait pu les installer mais on ne l'a pas 
+  fait. Pour des raisons de performances du serveur tout d'abord (les extensions 
+  frontpage ralentissent les serveurs), puis ensuite et surtout parceque nous 
+  avons choisi de d&eacute;velopper nos propres extensions, compatibles avec tout 
+  le monde m&ecirc;me l'utilisateur qui n'a qu'un simple &eacute;diteur de fichiers 
+  textes ou un logiciel html qui n'est pas frontpage.</font></p>
+<p><font face="Verdana" size="2">Les extensions que nous d&eacute;veloppons sont 
+  de plus assez simples &agrave; mettre en place, plus performantes que celles 
+  propos&eacute;es par les extensions frontpage.</font></p>
+<p><font size="2" face="Verdana"><strong>&quot;Peut-on limiter un acc&egrave;s 
+  &agrave; un r&eacute;pertoire par mot de passe&quot;</strong></font></p>
+<p><font face="Verdana" size="2">Non, nous avons pour but de publier des sites 
+  sur internet, pas de cacher des pages. Pas de limitation par mot de passe donc.. 
+  mais si vous le d&eacute;sirez vous pouvez faire une page html dans un sous 
+  repertoire de votre compte, qui ne sera link&eacute;e de nulle part.. personne 
+  ne pourra la trouver .. sauf ceux a qui cette URL &quot;cach&eacute;e&quot; 
+  sera communiqu&eacute;e !</font></p>
+<p><b><font face="Verdana, Arial, Helvetica, sans-serif" size="2">&quot;Applets 
+  JAVA qui ne charge pas les images&quot; </font></b></p>
+<p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> C'est s&ucirc;rement 
+  un probl&egrave;me de compatibilité du java avec le standard html 1.0. Pour 
+  contourner ce problème, renommez si vous le pouvez les images utlisées par vos 
+  applets de la mani&egrave;re suivante : <br>
+  image.gif -> image.gif_ <br>
+  image.jpg -> image.jpg_ <br>
+  Modifiez la config de vos applets en cons&eacute;quence.<br>
+  Site exemple : http://reeeeez.citeweb.net</font></p>
+<p><font size="2" face="Verdana"><strong>&quot;L'envoi des fichiers sur le FTP 
+  n'est pas tr&egrave;s rapide&quot;</strong></font></p>
+<p><font face="Verdana" size="2">Pour des raisons techniques on l'a limit&eacute; 
+  &agrave; 2 ko/s par connexion. Si vous utilisez LeechFTP cette limitation ne 
+  vous g&ecirc;nera pas car il fait plusieurs connexions simultan&eacute;es.</font></p>
+<p><b><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font></b><font size="2" face="Verdana"><strong>&quot;Certains 
+  de mes fichiers ont disparus !&quot;</strong></font></p>
+<p><font face="Verdana" size="2">Parfois nous faisons des v&eacute;rifications 
+  anti-virus. Les fichiers infect&eacute;s sont irr&eacute;m&eacute;diablement 
+  effac&eacute;s. V&eacute;rifiez les avant de les envoyer.<br>
+  De plus, les fichiers de plus de 0.5 Mo (512 Ko) sont automatiquements effac&eacute;s 
+  d&egrave;s l'envoi sur le FTP (ces fichiers ne respectent pas les <a href="/citeweb/inscription/regles.htm">r&egrave;gles 
+  d'h&eacute;bergement</a>). Dans ce dernier cas un mail vous est automatiquement 
+  envoy&eacute; sur votre email login@???? pour vous le signaler.</font></p>
+<p><font size="2" face="Verdana"><strong>&quot;Mon adresse http://citeweb.net/login 
+  ne fonctionne pas !&quot;</strong></font></p>
+<p><font face="Verdana" size="2">Qui vous a dit qu'elle &eacute;tait sens&eacute;e 
+  fonctionner ? ;-) A une epoque elle marchait effectivement, mais on n'a jamais 
+  dit que ca devait &ecirc;tre le cas et que ce n'&eacute;tait pas un bug (ben 
+  oui, les bugs peuvent aussi agir dans le bon sens ;). Bref, votre adresse c'est 
+  http://www.citeweb.net/login (avec un www hein ;) ou http://login.citeweb.net 
+  ou m&ecirc;me http://login.ctw.cc ou encore http://www.ctw.cc/login (on va s'arr&ecirc;ter 
+  l&agrave; pour le moment, c'est d&eacute;ja bien =).</font></p>
+<p><font size="2" face="Verdana"><strong>&quot;Mon r&eacute;pondeur ne fonctionne 
+  pas tout le temps&quot;</strong></font></p>
+<p><font face="Verdana" size="2">Pour &eacute;viter que de surcharger les serveurs 
+  (pas seulement les notres ;-), le r&eacute;pondeur est r&eacute;gl&eacute; pour 
+  ne r&eacute;pondre qu'une fois par jour &agrave; chaque personne. Ainsi, si 
+  quelqu'un vous envoie deux mails dans la m&ecirc;me journ&eacute;e, il ne recevra 
+  la r&eacute;ponse automatique du r&eacute;pondeur que la premi&egrave;re fois.</font></p>
+<p></p>
+<p></p>
+<p>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
+ </p>

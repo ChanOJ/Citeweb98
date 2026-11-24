@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+
+<head>
+<title></title>
+</head>
+
+<body bgcolor="#FFFFFF" link="#000000" vlink="#000000"
+alink="#000000">
+<SCRIPT LANGUAGE="JavaScript"><!--
+if(top==self)
+{
+  var URL = unescape(window.location.pathname);
+  location.href = "http://194.3.104.51/citeweb/index.htm?" + unescape(window.location.pathname);
+}
+//-->
+</SCRIPT>
+
+
+<table border="0" width="440">
+    <tr>
+        <td>
+  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr> 
+      <td><font size="3" face="Verdana"><strong> Erreur 404 ! </strong></font></td>
+      <td align="right">
+        <div align="right">
+          <table border="0"
+        cellspacing="0" bgcolor="#000000">
+            <tr> 
+              <td>
+                <table border="0" bgcolor="#C8AFF5">
+                  <tr> 
+                    <td><font size="1" face="Verdana"><strong> 
+<a href="../citeweb/a.htm" tppabs="http://dialup02.ftd.fr/citeweb/a.htm">&lt; page principale</a> </strong></font></td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </td>
+    </tr>
+    <tr>
+        <td><img src="blanc.gif" tppabs="http://dialup02.ftd.fr/aide/blanc.gif" width="1" height="1"></td>
+    </tr>
+  </table> 
+<p align="left"><font color="#3C976B" size="2" face="Verdana"><strong><font color="#000000">la 
+  page que vous avez demand&eacute; n'a pas &eacute;t&eacute; trouv&eacute;e par 
+  CITEWEB, </font></strong></font><b><font face="Verdana, Arial, Helvetica, sans-serif" size="2">l'administrateur 
+  du site n'a certainement pas terminé son site..<br>
+  <br>
+   Pour trouver l'information que vous recherchez, essayez cette adresse: <a href="../../www.citeweb.net/aide" tppabs="http://www.citeweb.net/aide">http://www.citeweb.net/aide 
+  </a> <br>
+  ou  consultez <a href="../sites/index.htm" tppabs="http://dialup02.ftd.fr/sites">l'index des sites hébergés</a> par CITEWEB 
+  </font></b></p>
+<p><b> <table border="0"
+        cellspacing="0" bgcolor="#000000" align="RIGHT">
+  <tr> 
+    <td> 
+      <table border="0" bgcolor="#C8AFF5">
+        <tr> 
+          <td><font size="1" face="Verdana"><strong> <a href="index.htm" tppabs="http://dialup02.ftd.fr/aide" target="">&gt; 
+  pages d'aide </a> </strong></font></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<br>
+        </td>
+    </tr>
+</table> </b></p>
+</body></html>

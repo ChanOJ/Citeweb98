@@ -1,0 +1,165 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head><script src="/frame-restore.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Aide - CITEWEB</title>
+</head>
+<body bgcolor="#FFFFFF" link="#000000" vlink="#000000" alink="#000000">
+<table border="0" width="440">
+    <tr>
+        <td>
+  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+      <td><font size="3" face="Verdana"><strong> Aide </strong></font></td>
+      <td align="right">
+        <div align="right">
+          <table border="0" cellspacing="0" bgcolor="#000000">
+            <tr>
+              <td>
+                <table border="0" bgcolor="#C8AFF5">
+                  <tr>
+                    <td><font size="1" face="Verdana"><strong><a href="/citeweb/a.htm">&lt; page principale</a> / <a href="/aide/index.htm">aide</a></strong></font></td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </td>
+    </tr>
+  </table>
+
+      
+<p><font face="Verdana"><strong><i>INSTALLER LE MOTEUR DE RECHERCHE PERSONNEL</i></strong></font></p>
+<p><font size="2" face="Verdana">Vous voulez un moteur de recherche sur votre 
+  site ? Dans quelques minutes cela sera r&eacute;alit&eacute;. Une moulinette 
+  tourne continuellement pour indexer les sites h&eacute;berg&eacute;s par CITEWEB. 
+  Vous pouvez mettre sur votre site un moteur qui recherche soit sur tout CITEWEB, 
+  soit sur un site seulement.</font> </p>
+<p><font size="2" face="Verdana"><strong>&gt; appeler le moteur de recherche pour 
+  qu'il fasse une recherche sur CITEWEB</strong></font></p>
+<p><font size="2" face="Verdana">Dans votre page html, il suffit d'ins&eacute;rer 
+  cette partie de code html:</font></p>
+<p><font size="2" face="Courier">&lt;form action=&quot;http://pom.citeweb.net/cgi/search.htm&quot; 
+  method=&quot;POST&quot;&gt;<br>
+  &lt;input type=&quot;text&quot; size=&quot;20&quot; name=&quot;SearchString&quot;&gt;<br>
+  &lt;/form&gt;</font></p>
+<p><font size="2" face="Verdana">cela fera apparaitre un formulaire de recherche 
+  sur votre site:</font></p>
+
+  <p> <font> 
+    
+    </font></p>
+
+<p><font size="2" face="Verdana">Il suffira d'appuyer sur entr&eacute;e pour lancer 
+  la recherche.</font></p>
+<p><font size="2" face="Verdana">Si vous voulez, vous pouvez rajouter la ligne 
+  suivante avant le </font><font size="2" face="Courier">&lt;/form&gt;</font><font size="2" face="Verdana"> 
+  pour obtenir un bouton de validation :<br>
+  </font><font size="2" face="Courier">&lt;input type=&quot;submit&quot; name=&quot;ACTION&quot; 
+  value=&quot;Go&quot;&gt;</font></p>
+
+  <p> <font> 
+    
+    
+    </font></p>
+
+<p><font size="2" face="Verdana"><strong>&gt; recherche sur un site particulier</strong></font></p>
+<p><font size="2" face="Verdana">Vous voulez que le moteur ne recherche que sur 
+  un seul site ? Par exemple seulement sur /OJUICE ? Il suffit de rajouter la 
+  ligne suivante avant le </font><font size="2" face="Courier">&lt;/form&gt;</font><font size="2" face="Verdana"> 
+  :<br>
+  </font><font size="2" face="Courier">&lt;input type=&quot;hidden&quot; name=&quot;FORMSCOPE&quot; 
+  value=&quot;/OJUICE&quot;&gt;</font></p>
+
+  <font> 
+  
+  </font> 
+  <p> <font> 
+    
+    
+    </font></p>
+
+<p><font size="2" face="Verdana">Vous l'aurez compris par vous m&ecirc;me, il 
+  suffit de changer la valeur de FORMSCOPE, mais attention n'oubliez pas le / 
+  au d&eacute;but, autrement cela ne marchera pas.</font></p>
+<p><font size="2" face="Verdana"><strong>&gt; configuration</strong></font></p>
+<p><font size="2" face="Verdana">Plusieurs param&egrave;tres sont &agrave; votre 
+  disposition pour personaliser la page de r&eacute;sultats. Il s'agit &agrave; 
+  chaque fois de lignes &agrave; rajouter avant le </font><font size="2" face="Courier">&lt;/form&gt;</font><font size="2" face="Verdana">. 
+  Vous pouvez n'en mettre que certaines, ou bien les mettre toutes. Les valeurs 
+  par d&eacute;faut sont celles de CITEWEB.</font></p>
+<p><font size="2" face="Verdana"><u>Changer la langue:</u></font></p>
+<p><font size="2" face="Verdana">Actuellement seul l'anglais et le fran&ccedil;ais 
+  sont disponibles. Pour avoir les r&eacute;sultats en fran&ccedil;ais vous n'avez 
+  rien a rajouter.<br>
+  </font><font size="2" face="Courier">&lt;input type=&quot;hidden&quot; name=&quot;LANGUAGE&quot; 
+  value=&quot;English&quot;&gt;</font></p>
+<p><font size="2" face="Verdana"><u>Changer l'image de t&ecirc;te:</u></font></p>
+<p><font size="2" face="Verdana">Pour ceux qui utilisaient l'ancien syst&egrave;me, 
+  ne vous inqui&eacute;tez pas il est encore valide, mais nous vous conseillons 
+  d'utiliser celui-ci maintenant.<br>
+  </font><font size="2" face="Courier">&lt;input type=&quot;hidden&quot; name=&quot;IMAGE&quot; 
+  value=&quot;http://ojuice.citeweb.net/pictures/search.gif&quot;&gt;</font></p>
+<p><font size="2" face="Verdana"><u>Changer la largeur de page:</u></font></p>
+<p><font size="2" face="Verdana">La largeur par defaut du tableau o&ugrave; sont 
+  affich&eacute;s les pages correspondant &agrave; la recherche est 420 pixels. 
+  Pour r&eacute;gler cette valeur &agrave; 600 par exemple, ajoutez ligne suivante:<br>
+  </font><font size="2" face="Courier">&lt;input type=&quot;hidden&quot; name=&quot;PageWidth&quot; 
+  value=&quot;600&quot;&gt;</font></p>
+<p><font size="2" face="Verdana"><u>Choisir le cadre de destination dans la page 
+  des r&eacute;sultats de la recherche:</u></font></p>
+<p><font size="2" face="Verdana">Si vous utilisez des frames, vous pouvez choisir 
+  dans quelle frame les liens trouv&eacute;s par le moteur s'ouvriront:<br>
+  </font><font size="2" face="Courier">&lt;input type=&quot;hidden&quot; name=&quot;TargetWindow&quot; 
+  value=&quot;_blank&quot;&gt;<br>
+  Remplacez _blank par le nom de votre fen&ecirc;tre, dans cet exemple les liens 
+  s'ouvrent dans une nouvelle fen&ecirc;tre.</font></p>
+<p><font size="2" face="Verdana"><u>Changer les couleurs:</u></font></p>
+<p><font size="2" face="Verdana">Voici les diff&eacute;rentes lignes disponibles<br>
+  </font><font size="2" face="Courier">&lt;input type=&quot;hidden&quot; name=&quot;ColorBg&quot; 
+  value=&quot;000000&quot;&gt;<br>
+  &lt;input type=&quot;hidden&quot; name=&quot;ColorText&quot; value=&quot;FFFFFF&quot;&gt;<br>
+  &lt;input type=&quot;hidden&quot; name=&quot;ColorLink&quot; value=&quot;FF8040&quot;&gt;<br>
+  &lt;input type=&quot;hidden&quot; name=&quot;ColorVlink&quot; value=&quot;FF8040&quot;&gt;<br>
+  &lt;input type=&quot;hidden&quot; name=&quot;ColorTableBg&quot; value=&quot;004080&quot;&gt;</font></p>
+<p><font size="2" face="Verdana">Les 4 premiers param&egrave;tres agissent sur 
+  le tag BODY. ColorTableBg r&egrave;gle la couleur de la barre qui apparait en 
+  fin de page.</font></p>
+<p><font size="2" face="Verdana"><strong>&gt; trucs et astuces</strong></font></p>
+<p><font size="2" face="Verdana"><u>Pr&eacute;selectionner le champ de saisie:</u></font></p>
+<p><font size="2" face="Verdana">Pour que l'utilisateur n'ait pas besoin de cliquer 
+  sur le champ de formulaire pour pouvoir &eacute;crire dedans, il suffit de rajouter 
+  les lignes suivantes juste apr&egrave;s le </font><font size="2" face="Courier">&lt;/form&gt;</font><font size="2" face="Verdana">.</font><font><br>
+  <font face="Courier New, Courier, mono" size="2">&lt;SCRIPT language=&quot;JavaScript&quot;&gt;&lt;!--<br>
+  document.moteur.SearchString.focus();<br>
+  //--&gt;&lt;/SCRIPT&gt;</font></font></p>
+<p><font face="Courier New, Courier, mono" size="2"><font face="Verdana, Arial, Helvetica, sans-serif"> 
+  Il faut aussi modifier la premi&egrave;re ligne du formulaire ainsi: <br>
+  </font><font face="Courier">&lt;form action=&quot;http://pom.citeweb.net/cgi/search.htm&quot; 
+  method=&quot;POST&quot; name=&quot;</font>moteur<font face="Courier">&quot;&gt;</font></font></p>
+<p><font size="2" face="Verdana"><u>Emp&ecirc;cher le moteur d'indexer un fichier 
+  au format html:</u></font></p>
+<p><font size="2" face="Verdana">Il suffit de rajouter la ligne suivante entre 
+  les deux balises <font face="Courier New, Courier, mono">&lt;HEAD&gt;</font> 
+  et <font face="Courier New, Courier, mono">&lt;/HEAD&gt;</font>:<br>
+  &lt;meta name=&quot;robots&quot; content=&quot;noindex&quot;&gt;</font></p>
+<p><font size="2" face="Verdana"><strong>&gt; des pr&eacute;cisions ?</strong></font></p>
+<p><font size="2" face="Verdana">- la recherche ne se fait que sur les fichiers 
+  de type HTM, HTML, CTW, SHTM, SHTML, SSI et TXT. &eacute;crivez nous pour toute 
+  r&eacute;clamation &agrave; ce propos.<br>
+  - il existe une documentation des mots-clefs utilisables dans la zone de saisie. 
+  elle se trouve <a href="/aide/recherche.htm" target="">ici</a> (version <a href="/aide/recherche_en.htm">anglaise</a>).<br>
+  - nous avons d&eacute;velopp&eacute; nous m&ecirc;me ce script, nous sommes 
+  donc en mesure de l'am&eacute;liorer selon vos demandes.</font></p>
+<p><font size="2" face="Verdana">contactez nous &agrave; </font><font><font size="2" face="Verdana">tech@????</font></font></p>
+<p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"></font></p>
+
+        </td>
+    </tr>
+</table>
+</body>
+</html>
+ 
+<p>&nbsp;</p>
+<p>&nbsp;</p>
