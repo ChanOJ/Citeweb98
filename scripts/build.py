@@ -39,6 +39,15 @@ FORM = re.compile(r"</?form\b[^>]*>", re.I)
 INPUT = re.compile(r"<input\b[^>]*>", re.I)
 SCRIPT_LOC = re.compile(r"<SCRIPT[^>]*>[^<]*parent\.\w+\.location[^<]*</SCRIPT>", re.I | re.S)
 
+# Footer only on pages showing a family name, a full postal address or an e-mail with its local part
+# in clear (site rule, 2026-11-24). The FTP help names its translator.
+REMOVAL_PAGES = {"aide/ftp.htm"}
+REMOVAL_NOTE = (
+    '<div id="removal-note" style="clear:both;margin:28px auto 8px;padding:6px 8px 0;width:580px;max-width:96%;'
+    'border-top:1px solid #808080;text-align:center;font:10px/14px Verdana,Arial,Helvetica,sans-serif;'
+    'color:#808080;background:transparent">To be removed from this page, '
+    '<a href="mailto:chandra_oj@pm.me" style="color:#808080;text-decoration:underline">contact me</a>.</div>'
+)
 SCRIPT_IRC_MENU = re.compile(r"<script[^>]*>\s*(?:<!--)?\s*ssm = new Array\(\).*?</script>", re.I | re.S)
 BOT_NAME = re.compile(r'ssm\[\d+\]\s*=\s*"([^"]+)"')
 HEAD_OPEN = re.compile(r"<head[^>]*>", re.I)
@@ -242,6 +251,9 @@ def clean(text, page):
         return m.group(0) if local.lower() in ROLE_MAIL else local + "@????"
 
     text = MAIL.sub(mail, text)
+    if page in REMOVAL_PAGES and "removal-note" not in text:
+        i = text.lower().rfind("</body>")
+        text = text[:i] + REMOVAL_NOTE + text[i:] if i >= 0 else text + REMOVAL_NOTE
     return head_meta(text, page)
 
 
