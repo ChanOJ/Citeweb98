@@ -69,6 +69,163 @@ resource "bunnynet_pullzone_hostname" "this" {
   force_ssl   = true
 }
 
+# --- Read-only hardening (edge rules, run in priority order) -----------------
+# The site is static: nothing a visitor sends may reach anything but a GET.
+
+locals {
+  # Old frames layout: pages only frame each other (same origin). Inline
+  # scripts/styles are used in 1998 HTML, hence 'unsafe-inline'. The site has
+  # no remote images, no forms, no media and no WebAssembly.
+  csp = join("; ", [
+    "default-src 'self'",
+    "script-src 'self' 'unsafe-inline'",
+    "style-src 'self' 'unsafe-inline'",
+    "img-src 'self' data:",
+    "media-src 'none'",
+    "font-src 'self'",
+    "object-src 'none'",
+    "frame-src 'self'",
+    "frame-ancestors 'self'",
+    "form-action 'none'",
+    "base-uri 'self'",
+    "connect-src 'self'",
+  ])
+
+  html_extensions   = ["htm", "html", "shtml"]
+  static_extensions = ["jpg", "jpeg", "gif", "png", "ico"]
+}
+
+# 1. Anything but GET/HEAD/OPTIONS is refused at the edge, before the origin.
+resource "bunnynet_pullzone_edgerule" "read_only" {
+  pullzone    = bunnynet_pullzone.this.id
+  description = "Read-only: block every method except GET, HEAD, OPTIONS"
+  enabled     = true
+  priority    = 1
+  match_type  = "MatchAll"
+
+  triggers = [{
+    type       = "RequestMethod"
+    match_type = "MatchNone"
+    patterns   = ["GET", "HEAD", "OPTIONS"]
+    parameter1 = null
+    parameter2 = null
+  }]
+
+  actions = [{ type = "BlockRequest", parameter1 = null, parameter2 = null, parameter3 = null }]
+}
+
+# 2. Security headers on every response.
+resource "bunnynet_pullzone_edgerule" "security_headers" {
+  pullzone    = bunnynet_pullzone.this.id
+  description = "Security headers"
+  enabled     = true
+  priority    = 2
+  match_type  = "MatchAny"
+
+  triggers = [{
+    type       = "Url"
+    match_type = "MatchAny"
+    patterns   = ["*"]
+    parameter1 = null
+    parameter2 = null
+  }]
+
+  actions = [
+    { type = "SetResponseHeader", parameter1 = "Content-Security-Policy", parameter2 = local.csp, parameter3 = null },
+    { type = "SetResponseHeader", parameter1 = "X-Content-Type-Options", parameter2 = "nosniff", parameter3 = null },
+    { type = "SetResponseHeader", parameter1 = "Referrer-Policy", parameter2 = "no-referrer", parameter3 = null },
+    { type = "SetResponseHeader", parameter1 = "X-Frame-Options", parameter2 = "SAMEORIGIN", parameter3 = null },
+    { type = "SetResponseHeader", parameter1 = "Strict-Transport-Security", parameter2 = "max-age=31536000", parameter3 = null },
+    { type = "SetResponseHeader", parameter1 = "Permissions-Policy", parameter2 = "camera=(), microphone=(), geolocation=(), payment=()", parameter3 = null },
+  ]
+}
+
+# 2b. Cross-origin isolation.
+resource "bunnynet_pullzone_edgerule" "isolation" {
+  pullzone    = bunnynet_pullzone.this.id
+  description = "Cross-origin isolation (COOP/CORP)"
+  enabled     = true
+  priority    = 3
+  match_type  = "MatchAny"
+
+  triggers = [{
+    type       = "Url"
+    match_type = "MatchAny"
+    patterns   = ["*"]
+    parameter1 = null
+    parameter2 = null
+  }]
+
+  actions = [
+    { type = "SetResponseHeader", parameter1 = "Cross-Origin-Opener-Policy", parameter2 = "same-origin", parameter3 = null },
+    { type = "SetResponseHeader", parameter1 = "Cross-Origin-Resource-Policy", parameter2 = "same-origin", parameter3 = null },
+  ]
+}
+
+# 3. The pages of 1998 are ISO-8859-1 (every <meta> says so): say it in the
+# HTTP header too, or browsers may guess UTF-8 and garble accents.
+resource "bunnynet_pullzone_edgerule" "html_charset" {
+  pullzone    = bunnynet_pullzone.this.id
+  description = "HTML pages: Content-Type with charset iso-8859-1"
+  enabled     = true
+  priority    = 4
+  match_type  = "MatchAny"
+
+  triggers = [{
+    type       = "UrlExtension"
+    match_type = "MatchAny"
+    patterns   = local.html_extensions
+    parameter1 = null
+    parameter2 = null
+  }]
+
+  actions = [
+    { type = "SetResponseHeader", parameter1 = "Content-Type", parameter2 = "text/html; charset=iso-8859-1", parameter3 = null },
+    { type = "OverrideBrowserCacheTime", parameter1 = "3600", parameter2 = null, parameter3 = null },
+  ]
+}
+
+resource "bunnynet_pullzone_edgerule" "text_charset" {
+  pullzone    = bunnynet_pullzone.this.id
+  description = "Text files: Content-Type with charset iso-8859-1"
+  enabled     = true
+  priority    = 5
+  match_type  = "MatchAny"
+
+  triggers = [{
+    type       = "UrlExtension"
+    match_type = "MatchAny"
+    patterns   = ["txt", "inc", "ini"]
+    parameter1 = null
+    parameter2 = null
+  }]
+
+  actions = [
+    { type = "SetResponseHeader", parameter1 = "Content-Type", parameter2 = "text/plain; charset=iso-8859-1", parameter3 = null },
+    { type = "OverrideBrowserCacheTime", parameter1 = "3600", parameter2 = null, parameter3 = null },
+  ]
+}
+
+# 4. Images never change: browsers keep them a week.
+resource "bunnynet_pullzone_edgerule" "static_cache" {
+  pullzone    = bunnynet_pullzone.this.id
+  description = "Images: browser cache 7 days"
+  enabled     = true
+  priority    = 6
+  match_type  = "MatchAny"
+
+  # bunny.net accepts at most 5 patterns per trigger: one trigger per chunk of 5.
+  triggers = [for i in range(0, length(local.static_extensions), 5) : {
+    type       = "UrlExtension"
+    match_type = "MatchAny"
+    patterns   = slice(local.static_extensions, i, min(i + 5, length(local.static_extensions)))
+    parameter1 = null
+    parameter2 = null
+  }]
+
+  actions = [{ type = "OverrideBrowserCacheTime", parameter1 = "604800", parameter2 = null, parameter3 = null }]
+}
+
 output "storage_zone_name" {
   value = bunnynet_storage_zone.this.name
 }
